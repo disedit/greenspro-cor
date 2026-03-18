@@ -1,0 +1,26 @@
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--spacing-navbar);
+  }
+
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  *:focus-visible {
+    outline: var(--border-width) solid var(--color-focus, var(--color-primary));
+    outline-offset: var(--border-width);
+  }
+
+  ::selection {
+    color: var(--color-selection-foreground, var(--color-white));
+    background-color: var(--color-selection-background, var(--color-primary));
+  }
+}

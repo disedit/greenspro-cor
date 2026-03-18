@@ -1,0 +1,77 @@
+@layer base {
+  .prose {
+    a {
+      text-decoration: underline;
+      transition: 0.25s ease;
+
+      &:hover {
+        font-weight: 700;
+        letter-spacing: -0.0225em;
+      }
+    }
+
+    ul,
+    ol {
+      margin-bottom: 1em;
+      padding-left: 1.5em;
+
+      li {
+        margin-bottom: 0.25em;
+      }
+
+      li::marker {
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0.5em;
+      font-weight: bold;
+      color: var(--color-primary);
+    }
+
+    h2 {
+      font-size: 1.25em;
+    }
+
+    :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+      margin-top: 1.5em;
+    }
+
+    table {
+      width: 100%;
+      margin: 0.25em 0 2em;
+
+      th {
+        color: var(--color-th-foreground, var(--color-white));
+        background: var(--color-th-background, var(--color-primary));
+        padding: 0.25em;
+        text-align: left;
+        --color-selection-background: var(--color-secondary);
+      }
+
+      td {
+        border-bottom: 1px var(--color-primary) solid;
+        padding: 0.25em;
+      }
+    }
+  }
+}
