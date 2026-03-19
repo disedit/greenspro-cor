@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-green-soft p-base sm:p-10 xl:p-inner h-svh flex flex-col gap-4">
-    <div class="bg-white h-full p-base sm:p-10 xl:p-inner flex flex-col rounded-tr-[4rem] rounded-bl-[4rem] md:rounded-tr-[7rem] md:rounded-bl-[7rem] xl:rounded-tr-[10rem] xl:rounded-bl-[10rem]">
+  <div class="bg-green-soft p-base sm:p-10 2xl:p-inner h-svh flex flex-col gap-4">
+    <div class="bg-white h-full p-base sm:p-10 2xl:p-inner flex flex-col rounded-tr-[4rem] rounded-bl-[4rem] md:rounded-tr-[7rem] md:rounded-bl-[7rem] 2xl:rounded-tr-[10rem] 2xl:rounded-bl-[10rem]">
       <header>
         <SiteLogo class="h-20 md:h-30" />
       </header>
