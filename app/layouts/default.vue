@@ -1,8 +1,8 @@
 <script setup>
 useHead({
-  htmlAttrs: { lang: 'en', class: 'bg-white' },
+  htmlAttrs: { lang: 'en', class: 'bg-green-soft' },
   meta: [
-    { name: 'theme-color', content: '#006F45' },
+    { name: 'theme-color', content: '#a0dc7c' },
     { name: 'apple-mobile-web-app-title', content: 'Greens-Pro CoR' }
   ],
   link: [
@@ -22,8 +22,8 @@ useHead({
   <div>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
-    <SiteNav />
+    <!--<SiteNav />-->
     <slot />
-    <SiteFooter />
+    <!--<SiteFooter />-->
   </div>
 </template>
