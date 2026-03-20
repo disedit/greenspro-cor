@@ -3,7 +3,7 @@ useHead({
   htmlAttrs: { lang: 'en', class: 'bg-green-soft' },
   meta: [
     { name: 'theme-color', content: '#a0dc7c' },
-    { name: 'apple-mobile-web-app-title', content: 'Greens-Pro CoR' }
+    { name: 'apple-mobile-web-app-title', content: 'Greens-Pro' }
   ],
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicons/favicon-96x96.png', sizes: '96x96' },
