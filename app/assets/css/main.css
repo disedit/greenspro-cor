@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: Aspekta, sans-serif;
+  --font-sans: Bahnschrift, sans-serif;
   --color-green: #006f45;
   --color-green-soft: #a0dc7c;
   --color-yellow: #ffd400;
