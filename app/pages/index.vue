@@ -31,7 +31,6 @@ useHead({ title })
       <footer class="text-right">
         <p class="text-sm text-green-dark tracking-tight flex flex-col md:flex-row gap-1 md:gap-4 justify-end">
           <a href="mailto:greens.pro@cor.europa.eu" class="hover:underline">greens.pro@cor.europa.eu</a>
-          <a href="tel:+3222822586" class="hover:underline">+32 2 282 2586</a>
         </p>
       </footer>
     </div>
