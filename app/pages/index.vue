@@ -29,7 +29,7 @@ useHead({ title })
         <SiteSocials />
       </main>
       <footer class="text-right">
-        <p class="text-sm text-green-dark tracking-tight flex flex-col md:flex-row gap-1 md:gap-4 justify-end">
+        <p class="text-base text-green-dark tracking-tight flex flex-col md:flex-row gap-1 md:gap-4 justify-end">
           <a href="mailto:greens.pro@cor.europa.eu" class="hover:underline">greens.pro@cor.europa.eu</a>
         </p>
       </footer>
