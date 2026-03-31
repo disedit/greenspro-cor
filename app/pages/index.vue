@@ -1,6 +1,6 @@
 <script setup>
 // Temporary redirect to the old website until the new one is ready
-await navigateTo('https://web.cor.europa.eu/greens')
+await navigateTo('https://web.cor.europa.eu/greens', { external: true })
 
 /* SEO Metatags */
 const siteName = 'Greens and Progressives in the European Committee of the Regions'
