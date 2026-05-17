@@ -22,8 +22,8 @@ useHead({
   <div>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
-    <!--<SiteNav />-->
+    <SiteNav />
     <slot />
-    <!--<SiteFooter />-->
+    <SiteFooter />
   </div>
 </template>
