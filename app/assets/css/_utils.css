@@ -18,20 +18,6 @@
     letter-spacing: -0.0225em;
   }
 
-  .page-container {
-    width: 100%;
-    max-width: var(--breakpoint-3xl);
-    margin-inline: auto;
-    padding-inline: var(--spacing-inner);
-    padding-block: calc(var(--spacing-inner) / 2);
-  }
-
-  .contained {
-    width: 100%;
-    max-width: var(--breakpoint-3xl);
-    margin-inline: auto;
-  }
-
   .selection-yellow {
     --color-selection-foreground: var(--color-green);
     --color-selection-background: var(--color-yellow);
@@ -43,5 +29,16 @@
       color-mix(in oklab, var(--color-green) 0%, transparent) 0%,
       color-mix(in oklab, var(--color-green) 100%, transparent) 85%
     );
+  }
+
+  .bg-flower {
+    background-image: url("../images/flower.svg");
+    background-size: 25vw;
+    background-position: bottom -6% right;
+    background-repeat: no-repeat;
+  }
+
+  .focus-secondary {
+    --color-focus: var(--color-secondary);
   }
 }

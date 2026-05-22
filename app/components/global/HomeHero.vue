@@ -14,7 +14,7 @@ const { link, target } = useUtils()
     <NuxtLink
       :to="link(block.link)"
       :target="target(block.link)"
-      class="group relative flex flex-col gap-4 justify-end 2xl:container mx-auto p-base md:p-10 bg-green text-white rounded-xl aspect-4/2 bg-cover bg-center overflow-hidden"
+      class="group relative flex flex-col gap-4 justify-end 2xl:container mx-auto p-base md:p-10 bg-green text-white rounded-xl md:aspect-4/2 h-[70svh] md:h-auto bg-cover bg-center overflow-hidden"
       :style="{
         backgroundImage: `url(${block.image.url})`
       }">

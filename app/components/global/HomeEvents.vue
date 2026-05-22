@@ -5,15 +5,23 @@ defineProps({
     required: true
   }
 })
+
+const { link } = useUtils()
 </script>
 
 <template>
-  <div>
-    HOME EVENTS
-    <pre>{{ block }}</pre>
-  </div>
+  <section class="px-base">
+    <h2 class="2xl:container mx-auto flex justify-between items-baseline gap-2 mt-5 mb-1">
+      <NuxtLink :to="link(block.link)" class="text-primary text-xl md:text-lg font-bold">
+        {{ block.header }}
+      </NuxtLink>
+      <UtilsArrowLink :to="link(block.link)" class="text-primary text-base underlined transition-opacity duration-300">
+        See more
+      </UtilsArrowLink>
+    </h2>
+    <div class="2xl:container mx-auto grid md:grid-cols-2 gap-base">
+      <EventsItem :event="{}" />
+      <EventsItem :event="{}" />
+    </div>
+  </section>
 </template>
-
-<style>
-
-</style>
