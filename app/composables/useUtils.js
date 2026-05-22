@@ -9,6 +9,14 @@ export const useUtils = () => {
       );
     },
 
+    target: (link) => {
+      if (link && link.target) {
+        return link.target;
+      }
+
+      return "_self";
+    },
+
     page: (page) => {
       return page.replaceAll(config.public.contentUrl, "");
     },

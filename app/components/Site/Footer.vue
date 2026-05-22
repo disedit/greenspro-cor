@@ -36,7 +36,9 @@ const settings = await useSettings()
         </ul>
       </div>
       <div class="md:col-span-2 flex justify-center md:items-end md:justify-end">
-        <img src="../../assets/images/logo-cor.svg" alt="European Committee of the Regions" class="w-full max-w-40" />
+        <a href="https://cor.europa.eu/" v-if="settings.footer?.cor_logo?.url">
+          <img :src="settings.footer.cor_logo.url" alt="European Committee of the Regions" class="w-full max-w-40" />
+        </a>
       </div>
     </div>
   </footer>

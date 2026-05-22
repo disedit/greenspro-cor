@@ -10,6 +10,7 @@
   --color-purple-soft: #ddc5f1;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-pine: #043220;
   --color-primary: var(--page-primary, var(--color-green));
   --color-secondary: var(--page-secondary, var(--color-purple));
   --color-tertiary: var(--page-tertiary, var(--color-yellow));
@@ -26,9 +27,9 @@
   --text-3xl: clamp(2.67rem, 3.32vi + 1.84rem, 5.79rem);
   --text-4xl: clamp(3.34rem, 4.67vi + 2.17rem, 7.71rem);
   --text-5xl: clamp(4.17rem, 6.52vi + 2.54rem, 10.28rem);
-  --spacing-base: 1.5rem;
+  --spacing-base: 1.25rem;
   --spacing-inner: 4.5rem;
-  --spacing-navbar: 6rem;
+  --spacing-navbar: 6.5rem;
   --spacing-page: calc(
     100svh - var(--spacing-navbar) - var(--spacing-base) - 14rem
   );
@@ -50,11 +51,12 @@
 
 @media (max-width: 46rem) {
   :root {
+    --spacing-base: 1rem;
     --spacing-inner: var(--spacing-base);
     --text-xs: 0.9rem;
     --text-sm: 1rem;
-    --text-base: 1.25rem;
-    --card-padding: 1.5rem;
+    --text-base: 1.1rem;
+    --spacing-navbar: 5.5rem;
   }
 }
 

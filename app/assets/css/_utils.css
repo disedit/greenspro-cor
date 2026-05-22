@@ -36,4 +36,12 @@
     --color-selection-foreground: var(--color-green);
     --color-selection-background: var(--color-yellow);
   }
+
+  .green-gradient {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-green) 0%, transparent) 0%,
+      color-mix(in oklab, var(--color-green) 100%, transparent) 85%
+    );
+  }
 }
