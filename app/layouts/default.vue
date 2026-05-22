@@ -1,6 +1,8 @@
 <script setup>
+const settings = await useSettings()
+
 useHead({
-  htmlAttrs: { lang: 'en', class: 'bg-green-soft' },
+  htmlAttrs: { lang: 'en', class: 'scroll-smooth bg-primary-soft' },
   meta: [
     { name: 'theme-color', content: '#a0dc7c' },
     { name: 'apple-mobile-web-app-title', content: 'Greens-Pro' }
@@ -22,8 +24,8 @@ useHead({
   <div>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
-    <SiteNav />
+    <SiteNav :settings="settings" />
     <slot />
-    <SiteFooter />
+    <SiteFooter :settings="settings" />
   </div>
 </template>

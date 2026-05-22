@@ -10,17 +10,17 @@
   --color-purple-soft: #ddc5f1;
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-primary: var(--color-green);
-  --color-secondary: var(--color-yellow);
-  --color-tertiary: var(--color-purple);
-  --color-primary-soft: var(--color-green-soft);
-  --color-secondary-soft: var(--color-yellow-soft);
-  --color-tertiary-soft: var(--color-purple-soft);
-  --text-xs: clamp(0.7rem, 0.35vi + 0.61rem, 1.03rem);
-  --text-sm: clamp(0.8rem, 0.45vi + 0.7rem, 1.2rem);
-  --text-base: clamp(0.88rem, 0.53vi + 0.74rem, 1.38rem);
-  --text-md: clamp(1.09rem, 0.79vi + 0.9rem, 1.83rem);
-  --text-lg: clamp(1.37rem, 1.15vi + 1.08rem, 2.44rem);
+  --color-primary: var(--page-primary, var(--color-green));
+  --color-secondary: var(--page-secondary, var(--color-purple));
+  --color-tertiary: var(--page-tertiary, var(--color-yellow));
+  --color-primary-soft: var(--page-primary-soft, var(--color-green-soft));
+  --color-secondary-soft: var(--page-secondary-soft, var(--color-purple-soft));
+  --color-tertiary-soft: var(--page-tertiary-soft, var(--color-yellow-soft));
+  --text-xs: clamp(0.7rem, 0.35vi + 0.61rem, 1rem);
+  --text-sm: clamp(0.8rem, 0.45vi + 0.7rem, 1.1rem);
+  --text-base: clamp(0.88rem, 0.53vi + 0.74rem, 1.25rem);
+  --text-md: clamp(1.09rem, 0.79vi + 0.9rem, 1.75rem);
+  --text-lg: clamp(1.37rem, 1.15vi + 1.08rem, 2.25rem);
   --text-xl: clamp(1.71rem, 1.65vi + 1.3rem, 3.26rem);
   --text-2xl: clamp(2.14rem, 2.35vi + 1.55rem, 4.34rem);
   --text-3xl: clamp(2.67rem, 3.32vi + 1.84rem, 5.79rem);
@@ -28,9 +28,9 @@
   --text-5xl: clamp(4.17rem, 6.52vi + 2.54rem, 10.28rem);
   --spacing-base: 1.5rem;
   --spacing-inner: 4.5rem;
-  --spacing-navbar: 4rem;
+  --spacing-navbar: 6rem;
   --spacing-page: calc(
-    100svh - var(--spacing-navbar) - var(--spacing-base) - 32rem
+    100svh - var(--spacing-navbar) - var(--spacing-base) - 14rem
   );
   --leading-tighter: 1.1;
   --color-lime-*: initial;
@@ -45,6 +45,7 @@
   --color-rose-*: initial;
   --color-slate-*: initial;
   --color-stone-*: initial;
+  --border-width: 2px;
 }
 
 @media (max-width: 46rem) {
@@ -59,5 +60,6 @@
 
 @import "./_fonts.css";
 @import "./_base.css";
+@import "./_page.css";
 @import "./_prose.css";
 @import "./_utils.css";

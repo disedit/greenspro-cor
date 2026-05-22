@@ -31,4 +31,9 @@
     max-width: var(--breakpoint-3xl);
     margin-inline: auto;
   }
+
+  .selection-yellow {
+    --color-selection-foreground: var(--color-green);
+    --color-selection-background: var(--color-yellow);
+  }
 }

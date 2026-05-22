@@ -3,11 +3,6 @@
     a {
       text-decoration: underline;
       transition: 0.25s ease;
-
-      &:hover {
-        font-weight: 700;
-        letter-spacing: -0.0225em;
-      }
     }
 
     ul,
@@ -72,6 +67,25 @@
         border-bottom: 1px var(--color-primary) solid;
         padding: 0.25em;
       }
+    }
+  }
+
+  .footer .prose {
+    a {
+      color: var(--color-white);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.1em;
+      text-decoration-color: rgba(255, 255, 255, 0.5);
+
+      &:hover {
+        color: var(--color-yellow);
+        text-decoration-color: var(--color-yellow);
+      }
+    }
+
+    p {
+      margin-top: 0.5em;
     }
   }
 }

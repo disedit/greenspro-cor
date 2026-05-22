@@ -21,7 +21,12 @@ useServerSeoMeta({
   ogSiteName: siteName,
   ogType: 'website'
 })
-useHead({ title })
+useHead({
+  title,
+  bodyAttrs: {
+    class: `page-${page.fields?.primary_color}`
+  }
+})
 </script>
 
 <template>

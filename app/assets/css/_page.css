@@ -1,0 +1,14 @@
+@layer base {
+  .primary-green {
+    --color-primary: var(--color-green);
+    --color-primary-soft: var(--color-green-soft);
+    --color-secondary: var(--color-purple);
+    --color-secondary-soft: var(--color-purple-soft);
+  }
+  .primary-purple {
+    --color-primary: var(--color-purple);
+    --color-primary-soft: var(--color-purple-soft);
+    --color-secondary: var(--color-green);
+    --color-secondary-soft: var(--color-green-soft);
+  }
+}
