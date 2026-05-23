@@ -38,6 +38,12 @@ onMounted(() => {
         // Go to page if onClickGoTo is set
         if (props.onClickGoTo) {
           return await navigateTo({ path: link(props.onClickGoTo), query: { country: id }, hash: '#profiles' })
+        } else {
+          // Scroll to profiles section
+          const profilesSection = document.getElementById('profiles')
+          if (profilesSection) {
+            profilesSection.scrollIntoView({ behavior: 'smooth' })
+          }
         }
       })
     }

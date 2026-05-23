@@ -1,23 +1,39 @@
-export const useColorMode = () => {
-  const colors = {
-    dark: "#000",
-    default: "#FAF5F2",
-    primary: "#773E90",
-  };
+import { breakpointsTailwind } from "@vueuse/core";
 
-  const setDark = () => {
-    document.documentElement.classList.add("dark");
-    document
-      .querySelector('meta[name="theme-color"]')
-      .setAttribute("content", colors.dark);
-  };
+let navWatcherInitialized = false;
 
-  const unsetDark = () => {
-    document.documentElement.classList.remove("dark");
-    document
-      .querySelector('meta[name="theme-color"]')
-      .setAttribute("content", colors.default);
-  };
+export const useNav = () => {
+  const breakpoints = useBreakpoints(breakpointsTailwind);
+  const isMobile = breakpoints.smaller("xl");
+  const { y } = useWindowScroll();
+  const showNavbar = useState("nav-show-navbar", () => true);
+  const lastScrollPosition = useState("nav-last-scroll-position", () => 0);
+  const navbarHidden = useState("nav-navbar-hidden", () => false);
+
+  if (import.meta.client && !navWatcherInitialized) {
+    navWatcherInitialized = true;
+
+    watch(
+      [y, isMobile],
+      ([currentScrollPosition, mobile]) => {
+        if (currentScrollPosition >= 0) {
+          if (
+            Math.abs(currentScrollPosition - lastScrollPosition.value) >= 60
+          ) {
+            showNavbar.value = currentScrollPosition < lastScrollPosition.value;
+            lastScrollPosition.value = currentScrollPosition;
+          }
+        }
+
+        navbarHidden.value = !mobile && !showNavbar.value;
+      },
+      { immediate: true },
+    );
+  }
+
+  const navCanHide = computed(() => {
+    return !isMobile.value;
+  });
 
   const setMenuOpen = () => {
     document.documentElement.classList.add("overflow-hidden");
@@ -28,8 +44,10 @@ export const useColorMode = () => {
   };
 
   return {
-    setDark,
-    unsetDark,
+    y,
+    navbarHidden,
+    showNavbar,
+    navCanHide,
     setMenuOpen,
     unsetMenuOpen,
   };

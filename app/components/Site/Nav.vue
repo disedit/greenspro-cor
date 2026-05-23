@@ -1,6 +1,4 @@
 <script setup>
-import { breakpointsTailwind } from '@vueuse/core'
-
 defineProps({
   settings: {
     type: Object,
@@ -8,33 +6,16 @@ defineProps({
   }
 })
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isMobile = breakpoints.smaller('xl')
-const { y } = useWindowScroll()
-const showNavbar = ref(true)
-const lastScrollPosition = ref(0)
-
-watch(y, (currentScrollPosition) => {
-  if (currentScrollPosition < 0 || Math.abs(currentScrollPosition - lastScrollPosition.value) < 60) {
-    return
-  }
-  showNavbar.value = currentScrollPosition < lastScrollPosition.value
-  lastScrollPosition.value = currentScrollPosition
-})
-
-const navCanHide = computed(() => {
-  return !isMobile.value
-})
+const { y, navbarHidden, setMenuOpen, unsetMenuOpen } = useNav()
 
 /* Mobile menu */
-const { setMenuOpen, unsetMenuOpen } = useColorMode()
 const menuOpen = ref(false)
 const showMenu = () => {
   menuOpen.value = true
   setMenuOpen()
 }
 
-const hideMenu = (index) => {
+const hideMenu = () => {
   menuOpen.value = false
   unsetMenuOpen()
 }
@@ -49,7 +30,7 @@ function toggleMenu () {
 </script>
 
 <template>
-  <div class="p-base fixed top-0 left-0 right-0 duration-500 ease-out z-5000" :class="{ '-translate-y-full': !showNavbar && navCanHide }">
+  <div class="p-base fixed top-0 left-0 right-0 duration-500 ease-out z-5000" :class="{ '-translate-y-full': navbarHidden }">
     <nav class="bg-white text-green 2xl:container mx-auto px-4 py-2 flex items-center justify-between rounded-xl transition-all duration-300" :class="{ 'shadow-xl shadow-pine/20': y > 100 }">
       <NuxtLink to="/" aria-label="The Greens & Progressives in the European Committee of the Regions - Home">
         <SiteLogo class="h-10 md:h-13" />
@@ -74,5 +55,5 @@ function toggleMenu () {
     :socials="settings.socials"
     @hide="hideMenu"
   />
-  <div class="h-navbar"></div>
+  <div class="nav-filler h-navbar"></div>
 </template>

@@ -17,7 +17,7 @@ defineProps({
         class="flex items-center p-2"
         :title="platform.label"
       >
-        <Icon :name="platform.icon" class="h-5 w-5" />
+        <Icon :name="platform.icon" />
       </a>
     </li>
   </ul>

@@ -31,6 +31,26 @@
     );
   }
 
+  .filter-gradient {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-primary-soft) 100%, transparent) 10%,
+      color-mix(in oklab, var(--color-primary-soft) 80%, transparent) 50%,
+      color-mix(in oklab, var(--color-primary-soft) 0%, transparent) 100%
+    );
+  }
+
+  .filter-filler::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-primary-soft);
+    height: 4rem;
+    z-index: 2;
+  }
+
   .bg-flower {
     background-image: url("../images/flower.svg");
     background-size: auto 60vh;
@@ -40,6 +60,10 @@
 
   .focus-secondary {
     --color-focus: var(--color-secondary);
+  }
+
+  .focus-primary-transparent {
+    --color-focus: color-mix(in oklab, var(--color-primary) 65%, transparent);
   }
 
   .focus-yellow {
