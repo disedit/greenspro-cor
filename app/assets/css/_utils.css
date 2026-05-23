@@ -33,7 +33,7 @@
 
   .bg-flower {
     background-image: url("../images/flower.svg");
-    background-size: 25vw;
+    background-size: auto 60vh;
     background-position: bottom -6% right;
     background-repeat: no-repeat;
   }

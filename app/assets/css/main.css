@@ -29,7 +29,7 @@
   --text-5xl: clamp(4.17rem, 6.52vi + 2.54rem, 10.28rem);
   --spacing-base: 1.25rem;
   --spacing-inner: 4.5rem;
-  --spacing-navbar: 6.6rem;
+  --spacing-navbar: 6.7rem;
   --spacing-page: calc(
     100svh - var(--spacing-navbar) - var(--spacing-base) - 14rem
   );

@@ -7,6 +7,17 @@ defineProps({
 })
 
 const { link } = useUtils()
+const { $wp } = useNuxtApp()
+const { data: events } = await useAsyncData(`events-homepage`, () =>
+  $wp.events()
+    .param('per_page', 2)
+)
+
+const combinedEvents = computed(() => {
+  const upcoming = events.value.upcoming || []
+  const past = events.value.past || []
+  return [...upcoming, ...past]
+})
 </script>
 
 <template>
@@ -20,8 +31,7 @@ const { link } = useUtils()
       </UtilsArrowLink>
     </h2>
     <div class="2xl:container mx-auto grid md:grid-cols-2 gap-base">
-      <EventsItem :event="{}" />
-      <EventsItem :event="{}" />
+      <EventsItem v-for="event in combinedEvents" :key="event.id" :event="event" />
     </div>
   </section>
 </template>
