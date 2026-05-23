@@ -39,14 +39,14 @@ const handleMapSelect = (selectedCountry) => {
 
 <template>
   <section>
-    <div class="overflow-clip">
-      <div class="grid max-w-400 mx-auto">
+    <div class="overflow-clip -mt-25">
+      <div class="relative grid max-w-350 2xl:max-w-400 mx-auto z-100">
         <div class="flex justify-end row-1 col-1 relative -mx-20">
           <UtilsMap
             :selectable="countries"
             :selected="country"
             @select="handleMapSelect"
-            class="h-full max-h-[90vh] w-auto"
+            class="h-full max-h-[80vh] w-auto"
           />
           <div class="bg-linear-to-r from-primary-soft/0 to-primary-soft w-20 absolute top-0 right-0 bottom-0" />
         </div>

@@ -42,12 +42,13 @@
 
   .filter-filler::before {
     content: "";
-    position: fixed;
+    position: absolute;
     top: 0;
+    transform: translateY(-100%);
     left: 0;
     right: 0;
     background: var(--color-primary-soft);
-    height: 4rem;
+    height: 10rem;
     z-index: 2;
   }
 

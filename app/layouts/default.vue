@@ -23,7 +23,7 @@ useHead({
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <NuxtLoadingIndicator />
+    <NuxtLoadingIndicator color="var(--color-primary)" />
     <SiteNav :settings="settings" />
     <slot />
     <SiteFooter :settings="settings" />
