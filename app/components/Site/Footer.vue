@@ -3,7 +3,7 @@ const settings = await useSettings()
 </script>
 
 <template>
-  <footer class="footer bg-primary text-white py-8 px-base selection-yellow">
+  <footer class="footer focus-yellow bg-primary text-white py-8 px-base selection-yellow">
     <div class="2xl:container mx-auto grid md:grid-cols-12 gap-12 md:gap-4">
       <div class="md:col-span-5">
         <div class="flex gap-3 mb-6">

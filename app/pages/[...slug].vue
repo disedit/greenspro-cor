@@ -30,7 +30,7 @@ useHead({
 </script>
 
 <template>
-  <main class="grid gap-base min-h-page max-w-screen overflow-hidden pb-10 bg-flower">
+  <main class="grid gap-base min-h-page max-w-screen overflow-hidden pb-20 bg-flower">
     <UtilsBlocks :blocks="page.fields?.blocks" :context="page" />
   </main>
 </template>

@@ -41,4 +41,13 @@
   .focus-secondary {
     --color-focus: var(--color-secondary);
   }
+
+  .focus-yellow {
+    --color-focus: var(--color-yellow);
+  }
+
+  .adjust-baseline {
+    display: inline-block;
+    transform: translateY(0.1em);
+  }
 }

@@ -26,6 +26,14 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+
+    optimizeDeps: {
+      include: [
+        'gsap',
+        'gsap/ScrollTrigger',
+        'wpapi', // CJS
+      ]
+    }
   },
 
   image: process.env.NUXT_PUBLIC_NODE_ENV === 'production' ? {
