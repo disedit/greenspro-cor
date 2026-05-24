@@ -11,6 +11,7 @@ const { $wp } = useNuxtApp()
 const { data } = await useAsyncData(`posts-homepage`, () =>
   $wp.news()
     .param('per_page', 3)
+    .param('brief', true)
 )
 </script>
 

@@ -29,7 +29,15 @@ const { data } = await useAsyncData(
           :per-page="10"
           :categories="props.block.categories.join(',')"
         />
-        <NewsFilter class="col-span-3" />
+        <NewsFilters
+          :all="data.all"
+          :filters="{
+            categories: data.categories,
+            tags: data.tags,
+            commissions: data.commissions
+          }"
+          class="col-span-3"
+        />
       </div>
     </div>
   </section>

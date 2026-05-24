@@ -1,18 +1,32 @@
 <script setup>
 const settings = await useSettings()
 const route = useRoute()
-const page = route.params.page || 1
-const categories = route.query.categories || null
-const tags = route.query.tags || null
-const commissions = route.query.commissions || null
 const { $wp } = useNuxtApp()
 
+const asQueryString = value => {
+  if (Array.isArray(value)) {
+    return value.join(',')
+  }
+  return typeof value === 'string' ? value : null
+}
+
+const page = computed(() => route.params.page || 1)
+const categories = computed(() => asQueryString(route.query.categories))
+const tags = computed(() => asQueryString(route.query.tags))
+const commissions = computed(() => asQueryString(route.query.commissions))
+const search = computed(() => route.query.search || '')
+
 const { data } = await useAsyncData(
-  `news-${page}-${categories}-${tags}-${commissions}`, () => $wp.news()
-    .param('categories', categories)
-    .param('tags', tags)
-    .param('commissions', commissions)
-    .param('page', page)
+  () => `news-${page.value}-${categories.value}-${tags.value}-${commissions.value}-${search.value}`,
+  () => $wp.news()
+    .param('categories', categories.value)
+    .param('tags', tags.value)
+    .param('commissions', commissions.value)
+    .param('page', page.value)
+    .param('search', search.value),
+  {
+    watch: [page, categories, tags, commissions, search]
+  }
 )
 
 /* SEO Metatags */
@@ -37,16 +51,16 @@ useServerSeoMeta({
 })
 useHead({ title })
 
-const categoryIds = data.value.categories.map(category => category.id).join(',')
-const tagIds = data.value.tags.map(tag => tag.id).join(',')
-const commissionIds = data.value.commissions.map(commission => commission.id).join(',')
+const categoryIds = computed(() => data.value?.categories?.map(category => category.id).join(',') || '')
+const tagIds = computed(() => data.value?.tags?.map(tag => tag.id).join(',') || '')
+const commissionIds = computed(() => data.value?.commissions?.map(commission => commission.id).join(',') || '')
 </script>
 
 <template>
-  <main class="min-h-page pb-20 px-base bg-flower">
+  <main class="min-h-page pb-20 px-base">
     <div class="2xl:container mx-auto">
       <UtilsPageHeader title="Newsroom" class="mt-10 mb-5" />
-      <section class="grid grid-cols-12 gap-6">
+      <section class="grid grid-cols-12 gap-8">
         <NewsPosts
           :posts="data.posts"
           :per-page="data.per_page"
@@ -56,7 +70,15 @@ const commissionIds = data.value.commissions.map(commission => commission.id).jo
           :commissions="commissionIds"
           class="col-span-9"
         />
-        <NewsFilter class="col-span-3" />
+        <NewsFilters
+          :all="data.all"
+          :filters="{
+            categories: data.categories,
+            tags: data.tags,
+            commissions: data.commissions
+          }"
+          class="col-span-3"
+        />
       </section>
     </div>
   </main>

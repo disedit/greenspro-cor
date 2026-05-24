@@ -28,9 +28,15 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    <div class="grid md:grid-cols-2 gap-8">
+  <section>
+    <div v-if="posts.length > 0" class="grid md:grid-cols-2 gap-8">
       <NewsItem v-for="post in posts" :key="post.id" :post="post" />
+    </div>
+    <div class="w-full bg-white rounded-xl p-5 md:p-8 text-primary text-lg text-center text-balance leading-tight max-w-[40ch]" v-else>
+      <div>
+        <Icon name="ri:search-line" class="text-2xl mb-4" />
+      </div>
+      <strong>No publications found</strong>. Try adjusting your filters to find what you're looking for.
     </div>
     <div>
       <NewsPagination
@@ -42,7 +48,7 @@ defineProps({
         :commissions="commissions"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <style>

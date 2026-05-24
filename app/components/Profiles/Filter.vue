@@ -125,7 +125,7 @@ const { navbarHidden } = useNav()
       label="Search by name"
       type="text"
       placeholder="Filter by name"
-      icon="ri:search-2-line"
+      icon="ri:search-line"
     />
   </div>
 </template>
