@@ -1,4 +1,6 @@
 <script setup>
+import countryLabels from "@/data/countries.js"
+
 const props = defineProps({
   block: {
     type: Object,
@@ -19,6 +21,13 @@ const countries = computed(() => {
 })
 
 const selectedCountry = ref(null)
+
+const {
+  hoveredCountry,
+  hoveredCountryName,
+  hoveredCountryMembers,
+  hoveredCountryAlternates
+} = useMap(profiles)
 </script>
 
 <template>
@@ -32,21 +41,32 @@ const selectedCountry = ref(null)
       </UtilsArrowLink>
     </h2>
     <div class="2xl:container mx-auto rounded-xl grid md:grid-cols-12 gap-8">
-      <UtilsScrollableContainer class="md:col-span-5 row-2 md:row-auto" scroll-class="flex md:flex-col gap-8 -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
+      <UtilsScrollableContainer class="md:col-span-5 row-2 md:row-auto" scroll-class="flex md:flex-col gap-4 -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
         <ProfilesHomeProfile
           v-for="profile in profiles"
           :key="profile.id"
           :profile="profile"
           :page="block.link"
-          @mouseenter="selectedCountry = profile.country"
-          @mouseleave="selectedCountry = null"
+          @mouseenter="selectedCountry = profile.country; hoveredCountry = profile.country"
+          @mouseleave="selectedCountry = null; hoveredCountry = null"
         />
       </UtilsScrollableContainer>
-      <div class="md:col-span-7 bg-white rounded-xl flex justify-end primary-purple">
+      <div class="relative md:col-span-7 bg-white rounded-xl flex justify-end primary-purple">
+        <Transition name="fadeUpSlight" mode="out-in">
+          <div v-if="hoveredCountry" class="absolute top-0 left-0 p-5 text-primary text-base">
+            <h2 class="font-bold text-md flex items-center gap-2">
+              <ProfilesCountry :country="hoveredCountry" class="text-base py-1 px-2" />
+              {{ hoveredCountryName }}
+            </h2>
+            <p v-if="hoveredCountryMembers">{{ hoveredCountryMembers }} members</p>
+            <p v-if="hoveredCountryAlternates">{{ hoveredCountryAlternates }} alternates</p>
+          </div>
+        </Transition>
         <UtilsMap
           class="h-full max-h-[60vh] w-auto"
           :selectable="countries"
           :selected="selectedCountry"
+          @hover="(country) => hoveredCountry = country"
           :on-click-go-to="block.link"
         />
       </div>

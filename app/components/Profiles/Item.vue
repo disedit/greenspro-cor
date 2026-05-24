@@ -23,7 +23,7 @@ const { commissions } = useCommissions(props.profile.commissions)
           <h3 class="inline text-md leading-tight font-bold underline decoration-primary/0 group-hover:decoration-primary/50 transition-colors duration-300">{{ profile.name }}</h3>
           <div class="flex gap-1 items-center">
             <ProfilesMemberType v-if="profile.type" :type="profile.type" class="py-1" />
-            <ProfilesCountry v-if="profile.country" :country="profile.country" class="py-1 px-2" />
+            <ProfilesCountry v-if="profile.country" :country="profile.country" class="py-1 px-2 ms-2" />
           </div>
         </div>
         <p class="leading-tight text-xs text-left text-balance">{{ profile.description }}</p>

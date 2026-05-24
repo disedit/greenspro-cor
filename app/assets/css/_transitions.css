@@ -7,3 +7,32 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.fadeUp-enter-active,
+.fadeUp-leave-active,
+.fadeUpSlight-enter-active,
+.fadeUpSlight-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.fadeUp-enter-from {
+  opacity: 0;
+  transform: translateY(20%);
+}
+
+.fadeUp-leave-to {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+.fadeUpSlight-enter-from {
+  opacity: 0;
+  transform: translateY(10%);
+}
+
+.fadeUpSlight-leave-to {
+  opacity: 0;
+  transform: translateY(-10%);
+}

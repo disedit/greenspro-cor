@@ -26,7 +26,7 @@ const { link } = useUtils()
         <h3 class="inline text-[1.2rem] leading-tight font-bold underline decoration-primary/0 group-hover:decoration-primary/50 transition-colors duration-300">{{ profile.name }}</h3>
         <div class="flex gap-1 items-center mb-3 md:mb-0 -translate-y-0.5">
           <ProfilesMemberType v-if="profile.type" :type="profile.type" />
-          <ProfilesCountry :country="profile.country" />
+          <ProfilesCountry :country="profile.country" class="ms-2" />
         </div>
       </div>
       <p class="leading-tight text-xs md:text-[.95rem] text-center md:text-left text-balance">{{ profile.description }}</p>

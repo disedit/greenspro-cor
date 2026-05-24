@@ -14,7 +14,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['select'])
+const emit = defineEmits(['select', 'hover'])
 const { link } = useUtils()
 
 onMounted(() => {
@@ -45,6 +45,13 @@ onMounted(() => {
             profilesSection.scrollIntoView({ behavior: 'smooth' })
           }
         }
+      })
+      // add mouseover event listener for hover
+      el.addEventListener('mouseover', () => {
+        emit('hover', id)
+      })
+      el.addEventListener('mouseleave', () => {
+        emit('hover', null)
       })
     }
   })
