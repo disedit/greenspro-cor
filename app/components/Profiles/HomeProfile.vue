@@ -16,8 +16,10 @@ const { link } = useUtils()
 <template>
   <NuxtLink :to="`${link(page)}?name=${profile.name}#profiles`" class="group bg-white rounded-xl p-5 grid grid-rows-[auto_1fr] md:grid-rows-[auto] md:grid-cols-6 gap-3 items-center min-w-[50vw] md:min-w-0">
     <div class="self-start md:self-center flex justify-center">
-      <img v-if="profile.photo" :src="profile.photo" :alt="`Profile picture of ${profile.name}`" class="w-30 md:w-full aspect-square object-cover rounded-full" />
-      <div v-else class="w-30 md:w-full aspect-square bg-primary-soft/20 rounded-full" />
+      <NuxtImg v-if="profile.photo" :src="profile.photo" :alt="`Profile picture of ${profile.name}`" class="w-30 md:w-full aspect-square object-cover rounded-full" />
+      <div v-else class="w-30 aspect-square bg-primary-soft/20 rounded-full grid items-center justify-center">
+        <Icon name="ri:user-line" class="text-primary text-xl" />
+      </div>
     </div>
     <div class="self-start md:self-center md:col-span-5 flex flex-col gap-1">
       <div class="flex flex-col md:flex-row items-center gap-2">

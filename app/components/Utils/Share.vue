@@ -24,15 +24,6 @@ const platforms = [
     }
   },
   {
-    name: 'X / Twitter',
-    icon: 'fa7-brands:x-twitter',
-    url: () => {
-      const text = encodeURIComponent(props.shareText)
-      const url = encodeURIComponent(window.location.href)
-      return `https://x.com/intent/post?text=${text}&url=${url}`
-    }
-  },
-  {
     name: 'LinkedIn',
     icon: 'fa7-brands:linkedin',
     url: () => {
@@ -71,14 +62,15 @@ onMounted(() => {
 
 <template>
   <div>
-    <h4 class="font-bold text-purple mb-4 text-md">
+    <h4 class="font-bold text-primary mb-4 text-base flex items-center gap-2">
+      <Icon name="ri:share-2-line" class="shrink-0" />
       {{ title }}
     </h4>
-    <div :class="['flex flex-wrap gap-4', size === 'lg' ? 'text-lg' : 'text-md']">
+    <div :class="['flex flex-wrap gap-3 justify-between', size === 'lg' ? 'text-lg' : 'text-md']">
       <a
         v-for="platform in platforms"
         :key="platform.name" :href="platform.url ? platform.url() : '#'"
-        class="flex items-center gap-2 text-white bg-purple hover:bg-orange font-medium p-3 rounded-full"
+        class="flex items-center gap-2 text-white bg-primary hover:bg-yellow hover:text-green font-bold p-3 rounded-full transition"
         :title="`Share on ${platform.name}`"
         >
           <Icon :name="platform.icon" />
@@ -86,7 +78,7 @@ onMounted(() => {
       </a>
       <button
         @click.prevent="copyToClipboard()"
-        class="flex items-center gap-2 text-white bg-purple hover:bg-orange font-medium p-3 rounded-full cursor-pointer aspect-square"
+        class="flex items-center gap-2 text-white bg-primary hover:bg-yellow hover:text-green font-bold p-3 rounded-full cursor-pointer aspect-square transition"
         title="Copy link to clipboard"
       >
         <Icon :name="copied ? 'ri:check-fill' : 'ri:link'" />
@@ -95,16 +87,12 @@ onMounted(() => {
       <button
         v-if="canShare"
         @click.prevent="shareDialog()"
-        class="flex items-center gap-2 text-white bg-purple hover:bg-orange font-medium p-3 rounded-full cursor-pointer"
+        class="flex items-center gap-2 text-white bg-primary hover:bg-yellow hover:text-green font-bold p-3 rounded-full cursor-pointer transition"
         title="More options to share"
       >
-        <Icon name="ri:more-fill" />
+        <Icon name="ri:share-2-line" />
         <span class="sr-only">More options to share</span>
       </button>
     </div>
   </div>
 </template>
-
-<style>
-
-</style>

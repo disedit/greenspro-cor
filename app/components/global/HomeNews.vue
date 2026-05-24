@@ -24,7 +24,7 @@ const { data } = await useAsyncData(`posts-homepage`, () =>
         See more
       </UtilsArrowLink>
     </h2>
-    <div class="2xl:container mx-auto grid md:grid-cols-3 gap-base">
+    <div class="2xl:container mx-auto grid md:grid-cols-3 gap-8">
       <NewsItem v-for="post in data.posts" :key="post.id" :post="post" />
     </div>
   </section>

@@ -27,7 +27,7 @@
   --text-3xl: clamp(2.67rem, 3.32vi + 1.84rem, 5.79rem);
   --text-4xl: clamp(3.34rem, 4.67vi + 2.17rem, 7.71rem);
   --text-5xl: clamp(4.17rem, 6.52vi + 2.54rem, 10.28rem);
-  --spacing-base: 1.25rem;
+  --spacing-base: 3.25rem;
   --spacing-inner: 4.5rem;
   --spacing-navbar: 6.7rem;
   --spacing-page: calc(

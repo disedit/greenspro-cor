@@ -30,7 +30,7 @@ const combinedEvents = computed(() => {
         See more
       </UtilsArrowLink>
     </h2>
-    <div class="2xl:container mx-auto grid md:grid-cols-2 gap-base">
+    <div class="2xl:container mx-auto grid md:grid-cols-2 gap-8">
       <EventsItem v-for="event in combinedEvents" :key="event.id" :event="event" />
     </div>
   </section>

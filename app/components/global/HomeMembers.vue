@@ -31,8 +31,8 @@ const selectedCountry = ref(null)
         See more
       </UtilsArrowLink>
     </h2>
-    <div class="2xl:container mx-auto rounded-xl grid md:grid-cols-12 gap-base">
-      <UtilsScrollableContainer class="md:col-span-5 row-2 md:row-auto" scroll-class="flex md:flex-col gap-base -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
+    <div class="2xl:container mx-auto rounded-xl grid md:grid-cols-12 gap-8">
+      <UtilsScrollableContainer class="md:col-span-5 row-2 md:row-auto" scroll-class="flex md:flex-col gap-8 -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
         <ProfilesHomeProfile
           v-for="profile in profiles"
           :key="profile.id"

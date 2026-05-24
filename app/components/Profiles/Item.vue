@@ -6,50 +6,34 @@ const props = defineProps({
   }
 })
 
-const commissions = computed(() => {
-  return props.profile.commissions ? props.profile.commissions.map(commission => {
-    const rawName = typeof commission === 'string' ? commission : commission?.name || ''
-    const match = rawName.match(/^(.*)\(([^)]+)\)$/)
-
-    if (!match) {
-      return {
-        name: rawName.trim(),
-        acronym: ''
-      }
-    }
-
-    return {
-      name: match[1].trim(),
-      acronym: match[2].trim(),
-      slug: commission.slug || null
-    }
-  }) : null
-})
+const { commissions } = useCommissions(props.profile.commissions)
 </script>
 
 <template>
   <article class="bg-white rounded-xl p-6 primary-purple">
     <div class="flex gap-6">
       <div class="shrink-0">
-        <img v-if="profile.photo" :src="profile.photo" :alt="`Profile picture of ${profile.name}`" class="w-30 aspect-square object-cover rounded-full" />
-        <div v-else class="w-30 aspect-square bg-primary-soft/20 rounded-full" />
+        <NuxtImg v-if="profile.photo" :src="profile.photo" :alt="`Profile picture of ${profile.name}`" class="w-30 aspect-square object-cover rounded-full" />
+        <div v-else class="w-30 aspect-square bg-primary-soft/20 rounded-full grid items-center justify-center">
+          <Icon name="ri:user-line" class="text-primary text-2xl" />
+        </div>
       </div>
       <div class="text-primary flex flex-col gap-2 flex-1">
         <div class="flex flex-wrap gap-2 justify-between">
           <h3 class="inline text-md leading-tight font-bold underline decoration-primary/0 group-hover:decoration-primary/50 transition-colors duration-300">{{ profile.name }}</h3>
           <div class="flex gap-1 items-center">
             <ProfilesMemberType v-if="profile.type" :type="profile.type" class="py-1" />
-            <ProfilesCountry :country="profile.country" class="py-1 px-2" />
+            <ProfilesCountry v-if="profile.country" :country="profile.country" class="py-1 px-2" />
           </div>
         </div>
         <p class="leading-tight text-xs text-left text-balance">{{ profile.description }}</p>
-        <div v-if="commissions && commissions.length">
-          <ul class="flex flex-col gap-1">
-            <li v-for="commission in commissions" :key="commission.slug" class="flex items-center gap-1">
-              <span class="bg-primary/25 font-bold w-15 rounded px-2 py-.5 text-center">
+        <div v-if="commissions && commissions.length" class="mb-2">
+          <ul class="flex flex-col gap-2">
+            <li v-for="commission in commissions" :key="commission.slug" class="flex items-center gap-2">
+              <span class="bg-primary/25 font-bold w-17 rounded px-2 py-.5 text-center shrink-0">
                 <span class="adjust">{{ commission.acronym }}</span>
               </span>
-              <span>{{ commission.name }}</span>
+              <span class="leading-none text-balance">{{ commission.name }}</span>
             </li>
           </ul>
         </div>

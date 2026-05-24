@@ -1,6 +1,6 @@
 const memberTypeLabels = {
   full_member: "Member",
-  alternate_member: "Alternate member",
+  alternate_member: "Alternate",
 };
 
 const countryLabels = {
@@ -128,7 +128,7 @@ export const useProfileFilters = (profiles) => {
   };
 
   const country = createQueryFilter(["country"]);
-  const commission = createQueryFilter(["commission", "comission"]);
+  const commission = createQueryFilter(["commission"]);
   const memberType = createQueryFilter(["type", "memberType"]);
   const name = createQueryFilter(["name"]);
 

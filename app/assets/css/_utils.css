@@ -23,6 +23,11 @@
     --color-selection-background: var(--color-yellow);
   }
 
+  .selection-secondary {
+    --color-selection-foreground: var(--color-white);
+    --color-selection-background: var(--color-secondary);
+  }
+
   .green-gradient {
     background: linear-gradient(
       to bottom,

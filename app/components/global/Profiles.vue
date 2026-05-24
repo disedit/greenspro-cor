@@ -22,8 +22,12 @@ const { data: profiles } = await useAsyncData(`profiles-${route.path}`, () =>
 
 const {
   country,
+  commission,
   name,
+  memberType,
   countryOptions,
+  commissionOptions,
+  memberTypeOptions,
   filteredProfiles
 } = useProfileFilters(profiles)
 </script>
@@ -38,8 +42,12 @@ const {
       />
       <ProfilesFilter
         v-model:country="country"
+        v-model:commission="commission"
+        v-model:member-type="memberType"
         v-model:name="name"
         :country-options="countryOptions"
+        :commission-options="commissionOptions"
+        :member-type-options="memberTypeOptions"
         :show="block.filters"
       />
       <ProfilesGrid :profiles="filteredProfiles" />

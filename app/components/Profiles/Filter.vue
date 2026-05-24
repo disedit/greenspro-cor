@@ -76,7 +76,7 @@ const { navbarHidden } = useNav()
 
 <template>
   <div
-    class="grid gap-2 md:gap-4 grid-cols-2 xl:grid-cols-4 sticky top-17 py-6 filter-gradient z-10 transition-all duration-300 focus-primary-transparent"
+    class="grid gap-2 md:gap-4 grid-cols-2 xl:grid-cols-4 sticky top-17 pt-6 pb-15 -mb-5 filter-gradient z-10 transition-all duration-300 focus-primary-transparent"
     :class="{
       'md:top-21 filter-filler': !navbarHidden,
       'md:top-0': navbarHidden
@@ -101,7 +101,7 @@ const { navbarHidden } = useNav()
       icon="ri:chat-1-line"
       v-model="commissionModel"
     >
-      <option value="">All comissions</option>
+      <option value="">All commissions</option>
       <option v-for="option in commissionOptions" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
@@ -109,11 +109,11 @@ const { navbarHidden } = useNav()
     <UtilsSelect
       v-if="show.includes('memberType')"
       name="memberType"
-      label="Member Type"
+      label="Function"
       icon="ri:user-line"
       v-model="memberTypeModel"
     >
-      <option value="">All member types</option>
+      <option value="">All functions</option>
       <option v-for="option in memberTypeOptions" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
