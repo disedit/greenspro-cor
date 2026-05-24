@@ -23,14 +23,14 @@ useServerSeoMeta({
 })
 useHead({
   title,
-  bodyAttrs: {
-    class: `page-${page.fields?.primary_color}`
+  htmlAttrs: {
+    class: `primary-${page.fields?.primary_color}`
   }
 })
 </script>
 
 <template>
-  <main class="grid gap-base min-h-page pb-20" :class="{ 'bg-flower': page.fields?.show_background_logo }">
+  <main class="grid gap-8 min-h-page pb-20" :class="{ 'bg-flower': page.fields?.show_background_logo }">
     <UtilsBlocks :blocks="page.fields?.blocks" :context="page" />
   </main>
 </template>

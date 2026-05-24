@@ -76,7 +76,7 @@ const { navbarHidden } = useNav()
 
 <template>
   <div
-    class="grid gap-2 md:gap-4 grid-cols-2 xl:grid-cols-4 sticky top-17 pt-6 pb-15 -mb-5 filter-gradient z-10 transition-all duration-300 focus-primary-transparent"
+    class="grid gap-2 md:gap-4 grid-cols-2 xl:grid-cols-4 sticky 2xl:text-base top-17 pt-6 pb-15 -mb-5 filter-gradient z-10 transition-all duration-300 focus-primary-transparent"
     :class="{
       'md:top-21 filter-filler': !navbarHidden,
       'md:top-0': navbarHidden

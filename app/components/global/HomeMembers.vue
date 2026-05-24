@@ -14,6 +14,7 @@ const { data: profiles } = await useAsyncData(`profiles-homepage`, () =>
   $wp.profiles()
     .param('populate', props.block.profiles.join(','))
     .param('brief', true)
+    .param('order_by', props.block.order_by || 'menu_order')
 )
 
 const countries = computed(() => {

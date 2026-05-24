@@ -18,6 +18,7 @@ const { data: profiles } = await useAsyncData(`profiles-${route.path}`, () =>
     .param('ids', props.block.ordered_profiles.join(','))
     : $wp.profiles()
     .param('populate', props.block.populate_with.join(','))
+    .param('order_by', props.block.order_by || 'menu_order')
 )
 
 const {

@@ -15,7 +15,7 @@ const { commissions } = useCommissions(props.post.commissions)
   <NewsFact icon="ri:calendar-line" label="Posted on">
     {{ formatDate(post.date) }}
   </NewsFact>
-  <NewsFact icon="ri:archive-line" label="Posted under">
+  <NewsFact icon="ri:archive-line" label="Type">
     <div class="flex flex-wrap gap-2">
       <NuxtLink
         :to="`/news/page/1/?categories=${category.id}`"
