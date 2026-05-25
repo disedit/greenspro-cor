@@ -1,19 +1,50 @@
-import WPAPI from "wpapi";
-
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig();
 
-  const wp = new WPAPI({
-    endpoint: config.public.wpApiEndpoint,
-  });
+  const createRequest = (route) => {
+    const query = {};
+    let promise;
 
-  wp.page = wp.registerRoute("greenspro-cor", "page");
-  wp.news = wp.registerRoute("greenspro-cor", "news");
-  wp.post = wp.registerRoute("greenspro-cor", "post");
-  wp.profiles = wp.registerRoute("greenspro-cor", "profiles");
-  wp.events = wp.registerRoute("greenspro-cor", "events");
-  wp.event = wp.registerRoute("greenspro-cor", "event");
-  wp.settings = wp.registerRoute("greenspro-cor", "settings");
+    const request = {
+      param(key, value) {
+        query[key] = value;
+        return request;
+      },
+      execute() {
+        if (promise) {
+          return promise;
+        }
+
+        const endpoint = config.public.wpApiEndpoint.replace(/\/$/, "");
+        promise = $fetch(`${endpoint}/greenspro-cor/${route}`, {
+          query,
+        });
+
+        return promise;
+      },
+      then(onFulfilled, onRejected) {
+        return request.execute().then(onFulfilled, onRejected);
+      },
+      catch(onRejected) {
+        return request.execute().catch(onRejected);
+      },
+      finally(onFinally) {
+        return request.execute().finally(onFinally);
+      },
+    };
+
+    return request;
+  };
+
+  const wp = {
+    page: () => createRequest("page"),
+    news: () => createRequest("news"),
+    post: () => createRequest("post"),
+    profiles: () => createRequest("profiles"),
+    events: () => createRequest("events"),
+    event: () => createRequest("event"),
+    settings: () => createRequest("settings"),
+  };
 
   return {
     provide: {
