@@ -37,12 +37,12 @@ const {
       <NuxtLink :to="link(block.link)" class="text-primary text-xl md:text-lg font-bold">
         {{ block.header }}
       </NuxtLink>
-      <UtilsArrowLink :to="link(block.link)" class="text-primary text-base underlined transition-opacity duration-300">
+      <UtilsArrowLink :to="link(block.link)" class="text-primary text-sm md:text-base underlined transition-opacity duration-300">
         See more
       </UtilsArrowLink>
     </h2>
-    <div class="2xl:container mx-auto rounded-xl grid md:grid-cols-12 gap-8">
-      <UtilsScrollableContainer class="md:col-span-5 row-2 md:row-auto" scroll-class="flex md:flex-col gap-4 -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
+    <div class="2xl:container mx-auto rounded-xl grid lg:grid-cols-12 gap-base md:gap-8">
+      <UtilsScrollableContainer class="lg:col-span-5 row-2 lg:row-auto" scroll-class="flex md:flex-col gap-4 -mx-base px-base md:mx-0 md:px-0 max-w-screen md:max-w-auto md:max-h-[60vh] scrollbar-none md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
         <ProfilesHomeProfile
           v-for="profile in profiles"
           :key="profile.id"
@@ -52,7 +52,7 @@ const {
           @mouseleave="selectedCountry = null; hoveredCountry = null"
         />
       </UtilsScrollableContainer>
-      <div class="relative md:col-span-7 bg-white rounded-xl flex justify-end primary-purple">
+      <div class="relative lg:col-span-7 bg-white rounded-xl flex justify-end primary-purple">
         <Transition name="fadeUpSlight" mode="out-in">
           <div v-if="hoveredCountry" class="absolute top-0 left-0 p-5 text-primary text-base bg-white rounded-xl">
             <h2 class="font-bold text-md flex items-center gap-2">
@@ -64,7 +64,7 @@ const {
           </div>
         </Transition>
         <UtilsMap
-          class="h-full max-h-[60vh] w-auto"
+          class="aspect-square w-full h-full max-h-[60vh] md:aspect-auto md:w-auto"
           :selectable="countries"
           :selected="selectedCountry"
           @hover="(country) => hoveredCountry = country"

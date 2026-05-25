@@ -21,11 +21,11 @@ const { data } = await useAsyncData(`posts-homepage`, () =>
       <NuxtLink :to="link(block.link)" class="text-primary text-xl md:text-lg font-bold">
         {{ block.header }}
       </NuxtLink>
-      <UtilsArrowLink :to="link(block.link)" class="text-primary text-base underlined transition-opacity duration-300">
+      <UtilsArrowLink :to="link(block.link)" class="text-primary text-sm md:text-base underlined transition-opacity duration-300">
         See more
       </UtilsArrowLink>
     </h2>
-    <div class="2xl:container mx-auto grid md:grid-cols-3 gap-8">
+    <div class="2xl:container mx-auto grid md:grid-cols-3 gap-base md:gap-8">
       <NewsItem v-for="post in data.posts" :key="post.id" :post="post" />
     </div>
   </section>

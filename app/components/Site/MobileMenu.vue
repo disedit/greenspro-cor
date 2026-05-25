@@ -113,6 +113,9 @@ function onLeaveCancelled() {
     overflow: hidden;
     font-weight: 800;
     z-index: 5;
+    line-height: 1;
+    padding-block: .25em;
+    text-wrap: balance;
 
     &:hover {
       color: var(--color-yellow);
