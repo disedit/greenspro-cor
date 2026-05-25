@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   block: {
     type: Object,
     required: true
@@ -7,6 +7,24 @@ defineProps({
 })
 
 const { link, target } = useUtils()
+
+const img = useImage()
+const imgUrl = img(props.block.image.url, { width: 1000, format: 'webp' })
+
+const backgroundStyle = computed(() => {  
+  return { backgroundImage: `url('${imgUrl}')` }
+})
+
+// Prefetch the image
+useHead({
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      href: imgUrl,
+    }
+  ]
+})
 </script>
 
 <template>
@@ -15,9 +33,7 @@ const { link, target } = useUtils()
       :to="link(block.link)"
       :target="target(block.link)"
       class="group relative flex flex-col gap-4 justify-end 2xl:container mx-auto p-base md:p-10 bg-green text-white rounded-xl md:aspect-4/2 h-[70svh] md:h-auto bg-cover bg-center overflow-hidden"
-      :style="{
-        backgroundImage: `url(${block.image.url})`
-      }">
+      :style="backgroundStyle">
       <h1 class="relative z-2 text-white text-xl font-bold leading-tighter text-balance max-w-[50ch] text-shadow-[0_0_10px_var(--color-green)]">
         {{ block.text }}
       </h1>
