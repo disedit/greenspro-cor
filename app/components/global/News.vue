@@ -22,10 +22,10 @@ const { data } = await useAsyncData(
   <section class="px-base">
     <div class="2xl:container mx-auto">
       <UtilsPageHeader :title="context.title" :breadcrumbs="context.breadcrumbs" class="mt-10 mb-5 text-primary" />
-      <div class="grid grid-cols-12 gap-8">
+      <div class="grid md:grid-cols-12 gap-8">
         <NewsPosts
           :posts="data.posts"
-          class="col-span-9"
+          class="md:col-span-9"
           :per-page="10"
           :categories="props.block.categories.join(',')"
         />
@@ -36,7 +36,7 @@ const { data } = await useAsyncData(
             tags: data.tags,
             commissions: data.commissions
           }"
-          class="col-span-3"
+          class="md:col-span-3"
         />
       </div>
     </div>

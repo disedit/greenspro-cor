@@ -12,6 +12,7 @@ export default defineNuxtPlugin(() => {
   wp.post = wp.registerRoute("greenspro-cor", "post");
   wp.profiles = wp.registerRoute("greenspro-cor", "profiles");
   wp.events = wp.registerRoute("greenspro-cor", "events");
+  wp.event = wp.registerRoute("greenspro-cor", "event");
   wp.settings = wp.registerRoute("greenspro-cor", "settings");
 
   return {

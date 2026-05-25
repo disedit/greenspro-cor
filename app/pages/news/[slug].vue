@@ -10,7 +10,6 @@ const ogTitle = title
 const description = post.excerpt || settings.seo?.default_description
 const ogImage = post.thumbnail?.url || settings.seo?.default_og_image?.url
 const keywords = settings.seo?.default_keywords
-const twitterSite = settings.seo?.xtwitter_user
 useServerSeoMeta({
   title,
   ogTitle,
@@ -20,7 +19,6 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image',
   keywords,
   ogSiteName: siteName,
-  twitterSite,
   ogType: 'article'
 })
 useHead({ title })
@@ -50,7 +48,7 @@ useHead({ title })
               <div class="md:hidden primary-purple border-t border-primary">
                 <NewsFacts :post="post" />
               </div>
-              <div v-html="post.content" class="text-base prose" />
+              <div v-html="post.content" class="text-base gutenberg prose" />
               <ClientOnly>
                 <UtilsShare :share-text="post.title" size="md" class="md:hidden primary-purple" />
               </ClientOnly>

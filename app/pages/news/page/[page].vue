@@ -60,7 +60,7 @@ const commissionIds = computed(() => data.value?.commissions?.map(commission => 
   <main class="min-h-page pb-20 px-base">
     <div class="2xl:container mx-auto">
       <UtilsPageHeader title="Newsroom" class="mt-10 mb-5 text-primary" />
-      <section class="grid grid-cols-12 gap-8">
+      <section class="grid md:grid-cols-12 gap-8">
         <NewsPosts
           :posts="data.posts"
           :per-page="data.per_page"
@@ -68,7 +68,7 @@ const commissionIds = computed(() => data.value?.commissions?.map(commission => 
           :categories="categoryIds"
           :tags="tagIds"
           :commissions="commissionIds"
-          class="col-span-9"
+          class="md:col-span-9"
         />
         <NewsFilters
           :all="data.all"
@@ -77,7 +77,7 @@ const commissionIds = computed(() => data.value?.commissions?.map(commission => 
             tags: data.tags,
             commissions: data.commissions
           }"
-          class="col-span-3"
+          class="md:col-span-3"
         />
       </section>
     </div>

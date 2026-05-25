@@ -16,8 +16,8 @@ const { commissions } = useCommissions(props.all.commissions)
 
 <template>
   <aside>
-    <div class="sticky top-navbar max-h-[calc(100vh-theme(space.navbar))] overflow-y-auto p-3 -m-3 md:scrollbar-gutter-stable md:scrollbar-thin md:scrollbar-thumb-green md:scrollbar-track-green-soft">
-      <h2 class="sr-only">Filters</h2>
+    <div class="2xl:sticky 2xl:top-navbar">
+      <h2 class="md:hidden border-t font-bold pt-4 text-primary text-lg mb-2">Filters</h2>
       <form @submit.prevent="search">
         <UtilsInput
           v-model="searchTerm"

@@ -16,7 +16,7 @@ const { page } = useUtils()
 
 <template>
   <div>
-    <ul class="text-md font-bold leading-tighter">
+    <ul class="text-md font-bold leading-tighter flex flex-wrap items-center">
       <li v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.url">
         <NuxtLink :to="page(breadcrumb.url)" class="text-current hover:underline">
           {{ breadcrumb.title }}
