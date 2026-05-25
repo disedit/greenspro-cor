@@ -35,10 +35,8 @@ export default defineNuxtConfig({
     }
   },
 
-  image: process.env.NUXT_PUBLIC_NODE_ENV === 'production' ? {
-    provider: 'netlify',
+  image: {
+    provider: 'ipx',
     domains: ['content.greenspro-cor.eu']
-  } : {
-    provider: 'ipx'
   }
 })

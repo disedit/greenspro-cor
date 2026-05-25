@@ -8,5 +8,10 @@ defineProps({
 </script>
 
 <template>
-  <NuxtPicture :src="block.image" class="page-image -mx-(--page-padding)" />
+  <NuxtPicture
+    format="avif,webp"
+    :src="block.image"
+    class="page-image -mx-(--page-padding)"
+    sizes="100vw md:900px"
+  />
 </template>

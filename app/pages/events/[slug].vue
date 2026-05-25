@@ -44,10 +44,11 @@ useHead({
     <article class="max-w-300 mx-auto grid gap-8 bg-white rounded-2xl overflow-clip p-5 md:p-10 mb-10 md:mb-20">
       <div v-if="event.thumbnail?.url">
         <NuxtPicture
+          format="avif,webp"
           :src="event.thumbnail.url"
           :alt="event.thumbnail.alt"
           :img-attrs="{ class: 'w-full rounded-lg' }"
-          sizes="100vw md:1200px"
+          sizes="100vw md:1000px"
         />
       </div>
       <h1 class="text-secondary font-bold text-xl leading-tight">
