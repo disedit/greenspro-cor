@@ -23,7 +23,7 @@ const { $gsap } = useNuxtApp()
 let timeline
 
 function beforeEnter(el) {
-  $gsap.set(el, { y: '-100%' })
+  $gsap.set(el, { y: '-120%' })
 }
 
 function onEnter(el, done) {
@@ -45,14 +45,14 @@ function onEnter(el, done) {
 function onLeave (el, done) {
   timeline = $gsap.timeline()
   timeline.to('.mobile-menu .animate', {
-    y: '100%',
+    y: '120%',
     duration: .25,
     stagger: {
       amount: .25,
       from: 'end'
     },
   }).to(el, {
-    y: '-100%',
+    y: '-120%',
     duration: .5,
     ease: 'power4.in'
   })
