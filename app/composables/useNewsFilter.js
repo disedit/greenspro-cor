@@ -69,7 +69,7 @@ export const useNewsFilter = (filters) => {
     };
   };
 
-  const selected = (type, id) => queryValues(type).includes(String(id));
+  const selected = (type, id) => queryWithPresets()[type]?.includes(String(id));
 
   const initialSearch = Array.isArray(route.query.search)
     ? route.query.search[0]

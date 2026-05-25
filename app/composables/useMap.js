@@ -1,6 +1,8 @@
 import countryLabels from "@/data/countries.js";
 
 export const useMap = (profiles) => {
+  const HOVER_PANEL_WIDTH = 200;
+  const HOVER_PANEL_OFFSET = 16;
   const hoverPanelPosition = ref({ x: 0, y: 0 });
 
   const handleMapMouseMove = (event) => {
@@ -8,9 +10,19 @@ export const useMap = (profiles) => {
     if (!(target instanceof HTMLElement)) return;
 
     const rect = target.getBoundingClientRect();
+    const localX = event.clientX - rect.left;
+    const localY = event.clientY - rect.top;
+
+    // Place panel to the left of the cursor when right placement would overflow.
+    const wouldOverflowRight =
+      event.clientX + HOVER_PANEL_OFFSET + HOVER_PANEL_WIDTH >
+      window.innerWidth;
+
     hoverPanelPosition.value = {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
+      x: wouldOverflowRight
+        ? localX - HOVER_PANEL_OFFSET - HOVER_PANEL_WIDTH
+        : localX,
+      y: localY,
     };
   };
 
@@ -38,8 +50,8 @@ export const useMap = (profiles) => {
 
   const hoveredCountryStyle = computed(() => {
     return {
-      left: `${hoverPanelPosition.value.x + 16}px`,
-      top: `${hoverPanelPosition.value.y + 16}px`,
+      left: `${hoverPanelPosition.value.x + HOVER_PANEL_OFFSET}px`,
+      top: `${hoverPanelPosition.value.y + HOVER_PANEL_OFFSET}px`,
     };
   });
 

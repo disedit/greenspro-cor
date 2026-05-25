@@ -50,14 +50,14 @@ const {
 <template>
   <section @mousemove="handleMapMouseMove">
     <div class="overflow-clip -mt-25">
-      <div class="relative grid 2xl:max-w-400 mx-auto z-100">
-        <div class="flex justify-end row-1 col-1 relative -mx-20">
+      <div class="relative grid 2xl:max-w-400 w-[90%] mx-auto z-100">
+        <div class="flex justify-end row-1 col-1 relative -mx-20 md:mx-0 2xl:-mx-20">
           <UtilsMap
             :selectable="countries"
             :selected="country"
             @select="handleMapSelect"
             @hover="(country) => hoveredCountry = country"
-            class="h-full min-h-180 max-h-[75vh] w-auto"
+            class="h-full min-h-150 2xl:min-h-180 xl:max-h-[75vh] w-auto"
           />
           <div class="bg-linear-to-r from-primary-soft/0 to-primary-soft w-20 absolute top-0 right-0 bottom-0 pointer-events-none" />
         </div>

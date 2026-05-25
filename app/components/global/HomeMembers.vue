@@ -54,7 +54,7 @@ const {
       </UtilsScrollableContainer>
       <div class="relative md:col-span-7 bg-white rounded-xl flex justify-end primary-purple">
         <Transition name="fadeUpSlight" mode="out-in">
-          <div v-if="hoveredCountry" class="absolute top-0 left-0 p-5 text-primary text-base">
+          <div v-if="hoveredCountry" class="absolute top-0 left-0 p-5 text-primary text-base bg-white rounded-xl">
             <h2 class="font-bold text-md flex items-center gap-2">
               <ProfilesCountry :country="hoveredCountry" class="text-base py-1 px-2" />
               {{ hoveredCountryName }}
