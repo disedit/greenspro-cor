@@ -51,7 +51,7 @@ const {
   <section @mousemove="handleMapMouseMove">
     <div class="overflow-clip max-w-screen -mt-25">
       <div class="relative grid 2xl:max-w-400 mx-auto z-100">
-        <div class="flex justify-end row-1 col-1 relative 2xl:-mx-20">
+        <div class="flex -translate-x-10 md:translate-x-0 justify-end row-1 col-1 relative 2xl:-mx-20">
           <UtilsMap
             :selectable="countries"
             :selected="country"

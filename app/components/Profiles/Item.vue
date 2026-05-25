@@ -19,7 +19,7 @@ const { commissions } = useCommissions(props.profile.commissions)
         </div>
       </div>
       <div class="text-primary flex flex-col gap-2 flex-1">
-        <div class="flex flex-wrap gap-2 justify-between">
+        <div class="flex flex-wrap items-center gap-2 justify-between">
           <h3 class="inline text-md leading-tight font-bold underline decoration-primary/0 group-hover:decoration-primary/50 transition-colors duration-300">{{ profile.name }}</h3>
           <div class="flex gap-1 items-center">
             <ProfilesMemberType v-if="profile.type" :type="profile.type" class="py-1" />
