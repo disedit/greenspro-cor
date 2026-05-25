@@ -59,7 +59,7 @@ const commissionIds = computed(() => data.value?.commissions?.map(commission => 
 <template>
   <main class="min-h-page pb-20 px-base">
     <div class="2xl:container mx-auto">
-      <UtilsPageHeader title="Newsroom" class="mt-10 mb-5" />
+      <UtilsPageHeader title="Newsroom" class="mt-10 mb-5 text-primary" />
       <section class="grid grid-cols-12 gap-8">
         <NewsPosts
           :posts="data.posts"

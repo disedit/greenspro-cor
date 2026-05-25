@@ -5,10 +5,120 @@
     --color-secondary: var(--color-purple);
     --color-secondary-soft: var(--color-purple-soft);
   }
+
   .primary-purple {
     --color-primary: var(--color-purple);
     --color-primary-soft: var(--color-purple-soft);
     --color-secondary: var(--color-green);
     --color-secondary-soft: var(--color-green-soft);
+  }
+
+  .page-embed {
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+    }
+  }
+
+  .page-content {
+    --page-padding: calc(var(--spacing) * 5);
+
+    *:last-child:is(.page-embed, .page-image),
+    .gutenberg *:last-child:is(.wp-block-embed, .wp-block-image) {
+      margin-bottom: calc(-1 * var(--page-padding));
+    }
+  }
+
+  .gutenberg {
+    .wp-block-image {
+      margin-inline: calc(-1 * var(--page-padding));
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .wp-block-heading {
+      color: var(--color-secondary);
+    }
+
+    .wp-block-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-inline: calc(-1 * var(--page-padding));
+
+      .wp-block-image {
+        margin: 0;
+      }
+    }
+
+    [class^="wp-block-"] {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .wp-block-quote {
+      border-left: 5px var(--color-primary) solid;
+      padding-left: 1rem;
+    }
+
+    .wp-block-file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: color-mix(in oklab, var(--color-primary) 25%, transparent);
+      border-radius: 0.75rem;
+      padding: 0.5rem 1rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .wp-block-details {
+      summary {
+        background: color-mix(in oklab, var(--color-primary) 25%, transparent);
+        color: var(--color-primary);
+        font-weight: bold;
+        border-radius: 0.75rem;
+        padding: 0.5rem 1rem;
+        padding-right: 0.5rem;
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        &:hover {
+          background: color-mix(
+            in oklab,
+            var(--color-primary) 50%,
+            transparent
+          );
+          color: color-mix(in oklab, var(--color-primary) 75%, black);
+        }
+      }
+    }
+
+    .wp-element-button {
+      background: var(--color-primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+
+      &:hover {
+        background: color-mix(in oklab, var(--color-primary) 75%, black);
+      }
+    }
+  }
+
+  @media (width >= 64rem) {
+    .page-content {
+      --page-padding: calc(var(--spacing) * 10);
+    }
   }
 }

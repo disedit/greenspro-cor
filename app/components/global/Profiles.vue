@@ -39,7 +39,7 @@ const {
       <UtilsPageHeader
         :title="context.title"
         :breadcrumbs="context.breadcrumbs"
-        class="mt-10 relative z-100"
+        class="text-primary mt-10 relative z-100"
       />
       <ProfilesFilter
         v-model:country="country"

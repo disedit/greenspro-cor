@@ -59,7 +59,7 @@ const { commissions } = useCommissions(props.all.commissions)
           <li v-for="tag in all.tags" :key="tag.id">
             <NuxtLink
               :to="toggleFilter('tags', tag.id)"
-              class="flex items-center gap-2 font-bold rounded-md px-3 py-0.5 transition-colors duration-200"
+              class="flex items-center gap-2 font-bold rounded-md px-3 py-0.5 text-sm transition-colors duration-200"
               :class="{
                 'group bg-primary text-white': selected('tags', tag.id),
                 'bg-primary/25 hover:bg-primary/35': !selected('tags', tag.id)

@@ -65,7 +65,7 @@ const {
           <UtilsPageHeader
             :title="context.title"
             :breadcrumbs="context.breadcrumbs"
-            class="mt-5 md:mt-20 w-fit bg-primary-soft shadow-[0_0_100px_75px_var(--color-primary-soft)]"
+            class="mt-5 md:mt-20 w-fit text-primary bg-primary-soft shadow-[0_0_100px_75px_var(--color-primary-soft)]"
           />
         </div>
       </div>

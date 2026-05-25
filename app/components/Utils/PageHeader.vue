@@ -18,15 +18,13 @@ const { page } = useUtils()
   <div>
     <ul class="text-md font-bold leading-tighter">
       <li v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.url">
-        <NuxtLink :to="page(breadcrumb.url)" class="text-primary hover:underline">
+        <NuxtLink :to="page(breadcrumb.url)" class="text-current hover:underline">
           {{ breadcrumb.title }}
         </NuxtLink>
-        <span v-if="index < breadcrumbs.length - 1" class="mx-2 text-primary/50">/</span>
+        <span v-if="index < breadcrumbs.length - 1" class="mx-2 text-current/50">/</span>
       </li>
     </ul>
-    <h1 v-if="title" class="text-primary font-bold text-3xl leading-tighter">
-      {{ title }}
-    </h1>
+    <h1 v-if="title" class="font-bold text-3xl leading-tighter" v-html="title" />
   </div>
 </template>
 

@@ -31,7 +31,7 @@ useHead({ title })
     <div class="2xl:container mx-auto">
       <UtilsPageHeader
         :breadcrumbs="[{ title: 'Newsroom', url: '/newsroom' }]"
-        class="mt-16 mb-5"
+        class="mt-16 mb-5 text-primary"
       />
       <div class="grid md:grid-cols-12 gap-8">
         <article class="bg-white rounded-xl overflow-clip md:col-span-9">

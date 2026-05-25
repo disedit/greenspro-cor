@@ -21,7 +21,7 @@ const { data } = await useAsyncData(
 <template>
   <section class="px-base">
     <div class="2xl:container mx-auto">
-      <UtilsPageHeader :title="context.title" :breadcrumbs="context.breadcrumbs" class="mt-10 mb-5" />
+      <UtilsPageHeader :title="context.title" :breadcrumbs="context.breadcrumbs" class="mt-10 mb-5 text-primary" />
       <div class="grid grid-cols-12 gap-8">
         <NewsPosts
           :posts="data.posts"

@@ -17,7 +17,7 @@ const props = defineProps({
       <UtilsPageHeader
         :title="block.title || context.title"
         :breadcrumbs="block.show_breadcrumbs ? context.breadcrumbs : null"
-        class="mt-10"
+        class="mt-10 text-primary"
       />
     </div>
   </header>
