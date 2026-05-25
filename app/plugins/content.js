@@ -10,6 +10,12 @@ export default defineNuxtPlugin(() => {
         query[key] = value;
         return request;
       },
+      paramIf(condition, key, value) {
+        if (condition) {
+          query[key] = value;
+        }
+        return request;
+      },
       execute() {
         if (promise) {
           return promise;

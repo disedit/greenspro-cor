@@ -23,15 +23,17 @@ const { $gsap } = useNuxtApp()
 let timeline
 
 function beforeEnter(el) {
-  $gsap.set(el, { y: '-120%' })
+  $gsap.set(el, { scaleY: 0, scaleX: 0, transformOrigin: 'top right' })
 }
 
 function onEnter(el, done) {
-  $gsap.set('.mobile-menu .animate', { y: '100%' })
+  $gsap.set('.mobile-menu .animate', { y: '150%' })
   timeline = $gsap.timeline()
 
   timeline.to(el, {
-    y: 0,
+    scaleY: 1,
+    scaleX: 1,
+    transformOrigin: 'top right',
     duration: .5,
     ease: 'power4.out',
   }).to('.mobile-menu .animate', {
@@ -45,14 +47,16 @@ function onEnter(el, done) {
 function onLeave (el, done) {
   timeline = $gsap.timeline()
   timeline.to('.mobile-menu .animate', {
-    y: '120%',
+    y: '150%',
     duration: .25,
     stagger: {
       amount: .25,
       from: 'end'
     },
   }).to(el, {
-    y: '-120%',
+    scaleY: 0,
+    scaleX: 0,
+    transformOrigin: 'top right',
     duration: .5,
     ease: 'power4.in'
   })
@@ -77,7 +81,7 @@ function onLeaveCancelled() {
     <nav
       id="mainNav"
       v-if="open"
-      class="mobile-menu fixed inset-0 z-2000 bg-green overflow-auto pt-navbar"
+      class="mobile-menu fixed inset-x-2 top-2 rounded-xl z-2000 bg-green overflow-auto pt-navbar"
       aria-label="Main navigation"
     >
       <div class="flex flex-col container mx-auto h-full p-8">
@@ -89,7 +93,7 @@ function onLeaveCancelled() {
           @click="emit('hide', i)">
           <div class="animate">{{ item.top_level_link?.title }}</div>
         </NuxtLink>
-        <div class="menu-socials mt-auto overflow-hidden">
+        <div class="menu-socials pt-10 mt-auto overflow-hidden">
           <div class="animate">
             <SiteSocials :socials="socials" class="flex text-xl text-white" />
           </div>
@@ -109,7 +113,7 @@ function onLeaveCancelled() {
     position: relative;
     color: var(--color-white);
     text-decoration: none;
-    font-size: var(--text-3xl);
+    font-size: var(--text-2xl);
     overflow: hidden;
     font-weight: 800;
     z-index: 5;
