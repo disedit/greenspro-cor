@@ -21,10 +21,20 @@ useServerSeoMeta({
   ogSiteName: siteName,
   ogType: 'website'
 })
+
+/* Theme colors */
+const themeColors = {
+  green: '#a0dc7c',
+  purple: '#ddc5f1'
+}
+
 useHead({
   title,
   htmlAttrs: {
-    class: `primary-${page.fields?.primary_color}`
+    class: `primary-${page.fields?.primary_color}`,
+    meta: [
+      { name: 'theme-color', content: themeColors[page.fields?.primary_color] || '#a0dc7c' }
+    ]
   }
 })
 </script>

@@ -81,7 +81,7 @@ function onLeaveCancelled() {
     <nav
       id="mainNav"
       v-if="open"
-      class="mobile-menu fixed inset-x-2 top-2 rounded-xl z-2000 bg-green overflow-auto pt-navbar"
+      class="mobile-menu fixed inset-x-2 top-2 rounded-xl z-2000 bg-primary overflow-auto pt-navbar"
       aria-label="Main navigation"
     >
       <div class="flex flex-col container mx-auto h-full p-8">
