@@ -59,16 +59,31 @@ export const useProfileFilters = (profiles) => {
   const route = useRoute();
   const router = useRouter();
 
-  const setQueryValue = async (keys, value) => {
-    const normalizedValue = parseQueryValue(value);
+  const queryFilterKeys = {
+    country: ["country"],
+    commission: ["commission"],
+    memberType: ["type", "memberType"],
+    name: ["name"],
+  };
+
+  const setQueryFilters = async (filters) => {
     const nextQuery = { ...route.query };
 
-    keys.forEach((key) => {
-      delete nextQuery[key];
-    });
+    for (const [filterName, value] of Object.entries(filters)) {
+      const keys = queryFilterKeys[filterName];
+      if (!keys) {
+        continue;
+      }
 
-    if (normalizedValue) {
-      nextQuery[keys[0]] = normalizedValue;
+      const normalizedValue = parseQueryValue(value);
+
+      keys.forEach((key) => {
+        delete nextQuery[key];
+      });
+
+      if (normalizedValue) {
+        nextQuery[keys[0]] = normalizedValue;
+      }
     }
 
     try {
@@ -81,7 +96,9 @@ export const useProfileFilters = (profiles) => {
     }
   };
 
-  const createQueryFilter = (keys) => {
+  const createQueryFilter = (filterName) => {
+    const keys = queryFilterKeys[filterName];
+
     return computed({
       get: () => {
         for (const key of keys) {
@@ -94,15 +111,15 @@ export const useProfileFilters = (profiles) => {
         return null;
       },
       set: (value) => {
-        void setQueryValue(keys, value);
+        void setQueryFilters({ [filterName]: value });
       },
     });
   };
 
-  const country = createQueryFilter(["country"]);
-  const commission = createQueryFilter(["commission"]);
-  const memberType = createQueryFilter(["type", "memberType"]);
-  const name = createQueryFilter(["name"]);
+  const country = createQueryFilter("country");
+  const commission = createQueryFilter("commission");
+  const memberType = createQueryFilter("memberType");
+  const name = createQueryFilter("name");
 
   const countryOptions = computed(() => {
     return toOptions(
@@ -168,5 +185,6 @@ export const useProfileFilters = (profiles) => {
     memberTypeOptions,
     filteredProfiles,
     countryLabels,
+    setQueryFilters,
   };
 };

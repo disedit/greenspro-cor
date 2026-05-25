@@ -26,7 +26,8 @@ const {
   countryOptions,
   commissionOptions,
   memberTypeOptions,
-  filteredProfiles
+  filteredProfiles,
+  setQueryFilters
 } = useProfileFilters(profiles)
 
 const countries = computed(() => {
@@ -34,7 +35,12 @@ const countries = computed(() => {
 })
 
 const handleMapSelect = (selectedCountry) => {
-  country.value = selectedCountry
+  void setQueryFilters({
+    commission: null,
+    memberType: null,
+    name: null,
+    country: selectedCountry
+  })
 }
 
 const {
