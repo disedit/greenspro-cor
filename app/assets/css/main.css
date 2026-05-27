@@ -4,10 +4,12 @@
   --font-sans: Bahnschrift, sans-serif;
   --color-green: #006f45;
   --color-green-soft: #a0dc7c;
+  --color-green-dark: #06452e;
   --color-yellow: #ffd400;
   --color-yellow-soft: #ffe87f;
   --color-purple: #6c3f99;
   --color-purple-soft: #ddc5f1;
+  --color-purple-dark: #28163a;
   --color-white: #ffffff;
   --color-black: #000000;
   --color-pine: #043220;
@@ -16,6 +18,8 @@
   --color-tertiary: var(--page-tertiary, var(--color-yellow));
   --color-primary-soft: var(--page-primary-soft, var(--color-green-soft));
   --color-secondary-soft: var(--page-secondary-soft, var(--color-purple-soft));
+  --color-primary-dark: var(--page-primary-dark, var(--color-green-dark));
+  --color-secondary-dark: var(--page-secondary-dark, var(--color-purple-dark));
   --color-tertiary-soft: var(--page-tertiary-soft, var(--color-yellow-soft));
   --text-xs: clamp(0.7rem, 0.35vi + 0.61rem, 1rem);
   --text-sm: clamp(0.8rem, 0.45vi + 0.7rem, 1.1rem);

@@ -50,6 +50,9 @@ useHead({ title })
                 <NewsFacts :post="post" />
               </div>
               <div v-html="post.content" class="text-base gutenberg prose" />
+              <NewsFact v-if="post.thumbnail.caption" icon="ri:information-line" label="Photo credit" class="text-secondary md:border-b-0 border-t text-xs">
+                {{ post.thumbnail.caption }}
+              </NewsFact>
               <ClientOnly>
                 <UtilsShare :share-text="post.title" size="md" class="md:hidden primary-purple" />
               </ClientOnly>

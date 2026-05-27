@@ -12,8 +12,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="px-base my-20">
-    <div class="page-content flex flex-col gap-8 max-w-300 mx-auto p-(--page-padding) bg-white rounded-3xl overflow-clip">
+  <div class="px-base md:my-20">
+    <div class="page-content flex flex-col gap-8 max-w-300 mx-auto p-(--page-padding) bg-white rounded-xl md:rounded-3xl overflow-clip">
       <UtilsPageHeader
         :title="block.title || context.title"
         :breadcrumbs="block.show_breadcrumbs ? context.breadcrumbs : null"

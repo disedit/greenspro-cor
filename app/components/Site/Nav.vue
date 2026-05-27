@@ -6,18 +6,16 @@ defineProps({
   }
 })
 
-const { y, navbarHidden, setMenuOpen, unsetMenuOpen } = useNav()
+const { y, navbarHidden } = useNav()
 
 /* Mobile menu */
 const menuOpen = ref(false)
 const showMenu = () => {
   menuOpen.value = true
-  setMenuOpen()
 }
 
 const hideMenu = () => {
   menuOpen.value = false
-  unsetMenuOpen()
 }
 
 function toggleMenu () {

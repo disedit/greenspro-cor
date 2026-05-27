@@ -2,15 +2,19 @@
   .primary-green {
     --color-primary: var(--color-green);
     --color-primary-soft: var(--color-green-soft);
+    --color-primary-dark: var(--color-green-dark);
     --color-secondary: var(--color-purple);
     --color-secondary-soft: var(--color-purple-soft);
+    --color-secondary-dark: var(--color-purple-dark);
   }
 
   .primary-purple {
     --color-primary: var(--color-purple);
     --color-primary-soft: var(--color-purple-soft);
+    --color-primary-dark: var(--color-purple-dark);
     --color-secondary: var(--color-green);
     --color-secondary-soft: var(--color-green-soft);
+    --color-secondary-dark: var(--color-green-dark);
   }
 
   .page-embed {
@@ -43,6 +47,13 @@
       color: var(--color-secondary);
     }
 
+    .wp-element-caption {
+      font-size: var(--text-xs);
+      color: var(--color-secondary);
+      opacity: 0.75;
+      margin-top: 0.5rem;
+    }
+
     .wp-block-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -58,6 +69,10 @@
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+
+    .wp-block-paragraph:not(:last-child) {
+      margin-bottom: 1em;
     }
 
     .wp-block-quote {
@@ -113,6 +128,54 @@
       &:hover {
         background: color-mix(in oklab, var(--color-primary) 75%, black);
       }
+    }
+
+    .wp-block-columns.is-layout-flex {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      .wp-block-column {
+        flex: 1;
+      }
+    }
+
+    .wp-block-column .wp-block-image {
+      margin-inline: 0;
+      margin-bottom: 0 !important;
+    }
+
+    .wp-block-column.is-layout-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .wp-block-paragraph {
+        margin-bottom: 0;
+      }
+    }
+
+    .wp-block-media-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .wp-block-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .is-content-justification-center {
+      justify-content: center;
+    }
+  }
+
+  @media (width <= 48rem) {
+    .wp-block-media-text.is-stacked-on-mobile {
+      grid-template-columns: 1fr;
     }
   }
 
