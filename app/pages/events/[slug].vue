@@ -48,7 +48,6 @@ useHead({
           :src="event.thumbnail.url"
           :alt="event.thumbnail.alt"
           :img-attrs="{ class: 'w-full rounded-lg' }"
-          sizes="100vw md:1000px"
         />
       </div>
       <h1 class="text-secondary font-bold text-xl leading-tight">

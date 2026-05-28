@@ -8,8 +8,7 @@ const props = defineProps({
 
 const { link, target } = useUtils()
 
-const img = useImage()
-const imgUrl = img(props.block.image.url, { width: 1000, format: 'webp' })
+const imgUrl = props.block.image.sizes['2048x2048'] || props.block.image.sizes.large || props.block.image.url
 
 const backgroundStyle = computed(() => {  
   return { backgroundImage: `url('${imgUrl}')` }

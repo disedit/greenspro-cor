@@ -21,7 +21,6 @@ const { link } = useUtils()
         :src="profile.photo"
         :alt="`Profile picture of ${profile.name}`"
         class="w-30 md:w-full aspect-square object-cover rounded-full"
-        sizes="100vw md:400px"
       />
       <div v-else class="w-30 aspect-square bg-primary-soft/20 rounded-full grid items-center justify-center">
         <Icon name="ri:user-line" class="text-primary text-xl" />

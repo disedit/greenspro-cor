@@ -17,11 +17,10 @@ const props = defineProps({
       <div class="md:col-span-7 prose" v-html="block.text" />
       <NuxtPicture
         v-if="block.picture?.url"
-        :src="block.picture.url"
+        :src="block.picture.sizes.large || block.picture.url"
         :alt="block.picture.alt"
         format="avif,webp"
         :img-attrs="{ class: 'w-full object-cover rounded-xl' }"
-        sizes="100vw md:800px"
         class="md:col-span-5"
         :class="{
           'hidden md:block': block.hide_picture_on_mobile

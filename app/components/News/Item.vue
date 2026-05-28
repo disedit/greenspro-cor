@@ -37,7 +37,6 @@ const link = ref(null)
         :alt="post.thumbnail.alt"
         class="w-full aspect-[1.7] object-cover cursor-pointer"
         @click="navigateTo(`/news/${post.slug}`)"
-        sizes="100vw md:600px"
       />
     </div>
     <div class="p-3 h-full flex">

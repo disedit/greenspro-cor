@@ -40,7 +40,6 @@ useHead({ title })
               :alt="post.thumbnail.alt"
               format="avif,webp"
               :img-attrs="{ class: 'w-full max-h-[40vh] object-cover' }"
-              sizes="100vw md:1000px"
             />
             <div class="p-5 md:p-10 flex flex-col gap-6 md:gap-8">
               <h1 class="text-secondary text-2xl md:text-xl font-bold leading-tighter text-balance">
