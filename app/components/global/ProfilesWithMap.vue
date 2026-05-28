@@ -54,7 +54,7 @@ const {
 </script>
 
 <template>
-  <section @mousemove="handleMapMouseMove">
+  <section @mousemove="handleMapMouseMove" class="px-base">
     <div class="overflow-clip -mt-20 md:-mt-25">
       <div class="relative grid 2xl:max-w-400 mx-auto z-100">
         <div class="flex justify-end row-1 col-1 relative 2xl:-mx-5">
@@ -67,7 +67,7 @@ const {
           />
           <div class="bg-linear-to-r from-primary-soft/0 to-primary-soft w-20 absolute top-0 right-0 bottom-0 pointer-events-none" />
         </div>
-        <div class="relative z-10 pointer-events-none 2xl:container mx-auto px-base row-1 col-1 pt-navbar w-full flex flex-col">
+        <div class="relative z-10 pointer-events-none 2xl:container mx-auto row-1 col-1 pt-navbar w-full flex flex-col">
           <UtilsPageHeader
             :title="context.title"
             :breadcrumbs="context.breadcrumbs"
@@ -76,7 +76,7 @@ const {
         </div>
       </div>
     </div>
-    <div id="profiles" class="2xl:container mx-auto px-base">
+    <div id="profiles" class="2xl:container mx-auto">
       <ProfilesFilter
         v-model:country="country"
         v-model:commission="commission"

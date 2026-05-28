@@ -45,7 +45,7 @@
     );
   }
 
-  .filter-filler::before {
+  /* .filter-filler::before {
     content: "";
     position: absolute;
     top: 0;
@@ -55,7 +55,7 @@
     background: var(--color-primary-soft);
     height: 10rem;
     z-index: 2;
-  }
+  } */
 
   .bg-flower {
     background-image: url("../images/flower.svg");

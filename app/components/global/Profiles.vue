@@ -36,6 +36,9 @@ const {
 <template>
   <section class="px-base">
     <div id="profiles" class="2xl:container mx-auto">
+      <h3 v-if="block.heading" class="text-primary text-xl font-bold">
+        {{ block.heading }}
+      </h3>
       <ProfilesFilter
         v-model:country="country"
         v-model:commission="commission"

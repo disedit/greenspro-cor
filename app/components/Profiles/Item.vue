@@ -33,18 +33,6 @@ const { commissions } = useCommissions(props.profile.commissions)
           </div>
         </div>
         <p class="leading-tight text-xs text-left text-balance">{{ profile.description }}</p>
-      </div>
-      <div class="profile-details text-primary flex flex-col gap-2 flex-1">
-        <div v-if="commissions && commissions.length" class="mb-2">
-          <ul class="flex flex-col gap-2 text-xs">
-            <li v-for="commission in commissions" :key="commission.slug" class="flex items-center gap-2">
-              <span class="bg-primary/25 font-bold w-17 rounded px-2 py-.5 text-center shrink-0">
-                <span class="adjust">{{ commission.acronym }}</span>
-              </span>
-              <span class="leading-none text-balance">{{ commission.name }}</span>
-            </li>
-          </ul>
-        </div>
         <div v-if="profile.email" class="text-xs">
           <a :href="`mailto:${profile.email}`" class="flex items-center gap-1 text-primary underlined-on-hover transition wrap-anywhere leading-tight">
             <Icon name="ri:mail-line" class="shrink-0" />
@@ -58,7 +46,19 @@ const { commissions } = useCommissions(props.profile.commissions)
           </a>
         </div>
         <ProfilesSocials :socials="profile.socials" :email="profile.email" v-if="profile.socials && profile.socials.length" />
-        <div v-if="profile.summary" v-html="profile.summary" class="text-black text-xs mt-4 leading-normal" />
+      </div>
+      <div class="profile-details text-primary flex flex-col gap-4 flex-1">
+        <div v-if="commissions && commissions.length" class="mb-2">
+          <ul class="flex flex-col gap-2 text-xs">
+            <li v-for="commission in commissions" :key="commission.slug" class="flex items-center gap-2">
+              <span class="bg-primary/25 font-bold w-17 rounded px-2 py-.5 text-center shrink-0">
+                <span class="adjust">{{ commission.acronym }}</span>
+              </span>
+              <span class="leading-none text-balance">{{ commission.name }}</span>
+            </li>
+          </ul>
+        </div>
+        <div v-if="profile.summary" v-html="profile.summary" class="text-black text-xs leading-normal" />
       </div>
     </div>
   </article>

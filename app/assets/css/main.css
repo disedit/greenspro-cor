@@ -53,7 +53,13 @@
   --border-width: 2px;
 }
 
-@media (max-width: 46rem) {
+@media (width <= 64rem) {
+  :root {
+    --spacing-navbar: 5rem;
+  }
+}
+
+@media (width <= 48rem) {
   :root {
     --spacing-base: 1rem;
     --spacing-inner: var(--spacing-base);

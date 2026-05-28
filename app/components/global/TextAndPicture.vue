@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
   <section class="px-base">
-    <div class="2xl:container grid md:grid-cols-12 gap-base mx-auto text-base text-primary-dark">
+    <div class="2xl:container grid md:grid-cols-12 gap-base mx-auto text-sm md:text-base text-primary-dark">
       <div class="md:col-span-7 prose" v-html="block.text" />
       <NuxtPicture
         v-if="block.picture?.url"
