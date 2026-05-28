@@ -48,7 +48,8 @@ function unhover() {
         :class="{ 'active': isActive(item.top_level_link) }"
         :aria-expanded="hovering === i ? 'true' : 'false'"
         @click.prevent="toggleHover(i)"
-        @keydown.down.prevent="toggleHover(i)"
+        @keydown.down.prevent="hover(i)"
+        @keydown.up.prevent="unhover"
       >
         {{ item.top_level_link.title }}
         <Icon name="ri:arrow-down-s-line" class="" aria-hidden="true" />

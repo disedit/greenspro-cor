@@ -34,13 +34,8 @@ const {
 </script>
 
 <template>
-  <section>
-    <div id="profiles" class="2xl:container mx-auto px-base">
-      <UtilsPageHeader
-        :title="context.title"
-        :breadcrumbs="context.breadcrumbs"
-        class="text-primary mt-10 relative z-100"
-      />
+  <section class="px-base">
+    <div id="profiles" class="2xl:container mx-auto">
       <ProfilesFilter
         v-model:country="country"
         v-model:commission="commission"
