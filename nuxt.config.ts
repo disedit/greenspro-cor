@@ -37,6 +37,12 @@ export default defineNuxtConfig({
 
   image: {
     provider: 'ipx',
-    domains: ['content.greenspro-cor.eu']
+    domains: ['content.greenspro-cor.eu'],
+    ipx: {
+      modifiers: {
+        quality: 80
+      },
+      maxAge: 31556926 // 1 year
+    }
   }
 })
