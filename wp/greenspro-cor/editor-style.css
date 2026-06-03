@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Bahnschrift';
+    src:
+        url('./fonts/Bahnschrift.woff2') format('woff2-variations');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --color-green: #006f45;
+  --color-green-soft: #a0dc7c;
+  --color-yellow: #ffd400;
+  --color-yellow-soft: #ffe87f;
+  --color-purple: #6c3f99;
+  --color-purple-soft: #ddc5f1;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-pine: #043220;
+}
+
+body {
+    background: #fff;
+    font-family: Bahnschrift, sans-serif;
+}
+
+a {
+    text-decoration: underline;
+    transition: 0.25s ease;
+    color: var(--color-green);
+  }
+
+  ul,
+  ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    li::marker {
+      font-weight: 700;
+      color: var(--color-green);
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--color-green);
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+    margin-top: 1.5em;
+  }
+
+  table {
+    width: 100%;
+    margin: 0.25em 0 2em;
+
+    th {
+      color: var(--color-th-foreground, var(--color-white));
+      background: var(--color-th-background, var(--color-green));
+      padding: 0.25em;
+      text-align: left;
+      --color-selection-background: var(--color-purple);
+    }
+
+    td {
+      border-bottom: 1px var(--color-purple) solid;
+      padding: 0.25em;
+    }
+  }
