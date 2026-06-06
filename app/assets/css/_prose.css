@@ -41,11 +41,15 @@
     h6 {
       margin-bottom: 0.5em;
       font-weight: bold;
-      color: var(--color-primary);
+      color: var(--color-secondary);
     }
 
     h2 {
-      font-size: 1.25em;
+      font-size: 1.35em;
+    }
+
+    h3 {
+      font-size: 1.15em;
     }
 
     :is(h1, h2, h3, h4, h5, h6):not(:first-child) {

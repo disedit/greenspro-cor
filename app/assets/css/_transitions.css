@@ -8,6 +8,26 @@
   opacity: 0;
 }
 
+.grow-enter-active,
+.grow-leave-active {
+  overflow: hidden;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease;
+}
+
+.grow-enter-from,
+.grow-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.grow-enter-to,
+.grow-leave-from {
+  max-height: 100vh;
+  opacity: 1;
+}
+
 .fadeUp-enter-active,
 .fadeUp-leave-active,
 .fadeUpSlight-enter-active,

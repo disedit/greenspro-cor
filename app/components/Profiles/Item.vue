@@ -7,6 +7,8 @@ const props = defineProps({
 })
 
 const { commissions } = useCommissions(props.profile.commissions)
+
+const showMore = ref(false)
 </script>
 
 <template>
@@ -57,7 +59,20 @@ const { commissions } = useCommissions(props.profile.commissions)
             </li>
           </ul>
         </div>
-        <div v-if="profile.summary" v-html="profile.summary" class="text-black text-xs leading-normal" />
+        <div v-if="profile.summary" class="relative cursor-pointer group" @click="showMore = !showMore">
+          <div
+            v-html="profile.summary"
+            class="text-black text-xs leading-normal [&>p]:mb-2 [&>p]:last:mb-0"
+            :class="{ 'line-clamp-2': !showMore }"
+          />
+          <button
+            class="underlined cursor-pointer group-hover:font-bold transition bg-white"
+            :class="{ 'absolute right-0 bottom-0': !showMore }"
+          >
+            {{ showMore ? 'Show less' : 'Read more' }}
+            <div class="absolute left-0 inset-y-0 w-15 bg-linear-to-r from-white/0 via-white/75 to-white -translate-x-full"></div>
+          </button>
+        </div>
       </div>
     </div>
   </article>

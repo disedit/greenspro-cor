@@ -45,6 +45,10 @@
 
     .wp-block-heading {
       color: var(--color-secondary);
+
+      &:not(:last-child) {
+        margin-bottom: 0.5em !important;
+      }
     }
 
     .wp-element-caption {
@@ -69,6 +73,13 @@
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+
+    mark {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      background-color: var(--color-primary-soft) !important;
+      color: var(--color-primary-dark) !important;
     }
 
     .wp-block-paragraph:not(:last-child) {
@@ -140,6 +151,12 @@
       }
     }
 
+    .wp-block-group.is-layout-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
     .wp-block-column .wp-block-image {
       margin-inline: 0;
       margin-bottom: 0 !important;
@@ -170,6 +187,14 @@
 
     .is-content-justification-center {
       justify-content: center;
+    }
+
+    .wp-block-separator {
+      border-top: 3px solid var(--color-primary);
+    }
+
+    .wp-block-buttons .wp-block-button {
+      margin: 0 !important;
     }
   }
 

@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
   <header class="px-base">
-    <div class="2xl:container mx-auto">
+    <div class="mx-auto" :class="{ 'max-w-300': block.narrow, '2xl:container': !block.narrow }">
       <UtilsPageHeader
         :title="block.title || context.title"
         :breadcrumbs="block.show_breadcrumbs ? context.breadcrumbs : null"

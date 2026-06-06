@@ -24,7 +24,7 @@ const { page } = useUtils()
         <span v-if="index < breadcrumbs.length - 1" class="mx-2 text-current/50">/</span>
       </li>
     </ul>
-    <h1 v-if="title" class="font-bold text-3xl leading-tighter" v-html="title" />
+    <h1 v-if="title" class="font-bold text-4xl md:text-3xl leading-tighter" v-html="title" />
   </div>
 </template>
 

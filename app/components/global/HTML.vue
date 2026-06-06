@@ -8,5 +8,5 @@ defineProps({
 </script>
 
 <template>
-  <div v-html="block.text" class="prose gutenberg text-base" />
+  <div v-html="block.html" />
 </template>
