@@ -31,8 +31,8 @@ useHead({ title })
         :breadcrumbs="[{ title: 'Newsroom', url: '/newsroom' }]"
         class="mt-16 mb-5 text-primary"
       />
-      <div class="grid md:grid-cols-12 gap-8">
-        <article class="bg-white rounded-xl overflow-clip md:col-span-9">
+      <div class="grid xl:grid-cols-12 gap-8">
+        <article class="bg-white rounded-xl overflow-clip xl:col-span-9">
           <div class="relative">
             <NuxtPicture
               v-if="post.thumbnail?.url"
@@ -45,20 +45,20 @@ useHead({ title })
               <h1 class="text-secondary text-2xl md:text-xl font-bold leading-tighter text-balance">
                 {{ post.title }}
               </h1>
-              <div class="md:hidden primary-purple border-t border-primary">
+              <div class="xl:hidden primary-purple border-t border-primary">
                 <NewsFacts :post="post" />
               </div>
               <div v-html="post.content" class="text-base gutenberg prose" />
-              <NewsFact v-if="post.thumbnail.caption" icon="ri:information-line" label="Photo credit" class="text-secondary md:border-b-0 border-t text-xs">
+              <NewsFact v-if="post.thumbnail.caption" icon="ri:information-line" label="Photo credit" class="text-secondary xl:border-b-0 border-t text-xs">
                 {{ post.thumbnail.caption }}
               </NewsFact>
               <ClientOnly>
-                <UtilsShare :share-text="post.title" size="md" class="md:hidden primary-purple" />
+                <UtilsShare :share-text="post.title" size="md" class="xl:hidden primary-purple" />
               </ClientOnly>
             </div>
           </div>
         </article>
-        <aside class="hidden md:block md:col-span-3 primary-green">
+        <aside class="hidden xl:block xl:col-span-3 primary-green">
           <div class="sticky top-navbar">
             <NewsFacts :post="post" />
             <ClientOnly>

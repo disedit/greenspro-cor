@@ -28,6 +28,13 @@ const { commissions } = useCommissions(props.post.commissions)
       </NuxtLink>
     </div>
   </NewsFact>
+  <NewsFact v-if="post.profiles.length > 0" icon="ri:user-3-line" label="Related Members" layout="column">
+    <ul class="flex flex-col gap-2">
+      <li v-for="profile in post.profiles" :key="profile.id">
+        <ProfilesNewsCard :profile="profile" />
+      </li>
+    </ul>
+  </NewsFact>
   <NewsFact v-if="post.tags?.length" icon="ri:price-tag-3-line" label="Topics">
     <div class="flex flex-wrap gap-2">
     <NuxtLink

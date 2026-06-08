@@ -34,19 +34,23 @@ function profiles()
   }
   if ($order_by === 'profiles_order') {
     $args['meta_query'] = [
-      'profile_order_clause' => [
-        'key'  => 'profile_order',
-        'type' => 'NUMERIC',
-      ],
-      'type_clause' => [
-        'key' => 'type',
-      ],
+        'profile_order_clause' => [
+            'key'  => 'profile_order',
+            'type' => 'NUMERIC',
+        ],
+        'type_clause' => [
+            'key' => 'type',
+        ],
+        'last_name_clause' => [
+            'key'  => 'last_name',
+        ],
     ];
 
     $args['orderby'] = [
-      'profile_order_clause' => 'ASC',
-      'type_clause'          => 'DESC',
-      'title'                => 'ASC',
+        'profile_order_clause' => 'ASC',
+        'type_clause'          => 'DESC',
+        'last_name_clause'     => 'ASC',
+        'title'                => 'ASC',
     ];
   }
 
