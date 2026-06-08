@@ -80,4 +80,20 @@
     display: inline-block;
     transform: translateY(0.1em);
   }
+
+  .purple-circle::before,
+  .green-circle::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color-purple);
+    border-radius: 50%;
+    margin-right: 0.1em;
+    transform: translateY(0.2em);
+  }
+
+  .green-circle::before {
+    background-color: var(--color-green);
+  }
 }
