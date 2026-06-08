@@ -65,7 +65,9 @@ const {
             @hover="(country) => hoveredCountry = country"
             class="mt-20 md:mt-0 w-full h-full min-h-100 md:min-h-150 2xl:min-h-180 xl:max-h-[75vh] md:w-auto"
           />
-          <div v-html="context.content" class="hidden xl:block absolute left-0 2xl:left-14 z-100 top-[50%] mt-10 prose gutenberg max-w-[40ch] 2xl:max-w-[60ch] text-base text-green-dark" />
+          <div class="hidden xl:block absolute left-0 2xl:left-14 z-100 top-[50%] max-w-[40ch] 2xl:max-w-[60ch] text-base text-green-dark">
+            <ProfilesNumbers :profiles="profiles" :text="context.content" />
+          </div>
           <div class="bg-linear-to-r from-primary-soft/0 to-primary-soft w-20 absolute top-0 right-0 bottom-0 pointer-events-none" />
         </div>
         <div class="relative z-10 pointer-events-none 2xl:container mx-auto row-1 col-1 pt-navbar w-full flex flex-col">
@@ -77,7 +79,9 @@ const {
         </div>
       </div>
     </div>
-    <div v-html="context.content" class="xl:hidden mt-10 prose gutenberg text-base text-green-dark" />
+    <div class="xl:hidden mt-10 text-base text-green-dark">
+      <ProfilesNumbers :profiles="profiles" :text="context.content" />
+    </div>
     <div id="profiles" class="2xl:container mx-auto">
       <ProfilesFilter
         v-model:country="country"
