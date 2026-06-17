@@ -54,8 +54,13 @@ function unhover() {
         {{ item.top_level_link.title }}
         <Icon name="ri:arrow-down-s-line" class="" aria-hidden="true" />
       </a>
-      <NuxtLink v-else :to="link(item.url)" :class="{ active: isActive(item.link) }">
-        {{ item.title }}
+      <NuxtLink
+        v-else
+        :to="link(item.link)"
+        :class="{ active: isActive(item.link) }"
+        class="menu-link flex items-center gap-1 py-1 px-3 rounded-md transition-colors text-primary hover:bg-primary-soft/20"
+      >
+        {{ item.link.title }}
       </NuxtLink>
 
       <ul v-if="item.acf_fc_layout === 'submenu'" class="submenu">

@@ -16,7 +16,8 @@ const { data: events } = await useAsyncData(`events-homepage`, () =>
 const combinedEvents = computed(() => {
   const upcoming = events.value.upcoming || []
   const past = events.value.past || []
-  return [...upcoming, ...past]
+  const combined = [...upcoming, ...past]
+  return combined.slice(0, 2)
 })
 </script>
 
