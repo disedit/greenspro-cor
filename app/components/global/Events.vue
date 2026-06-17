@@ -21,7 +21,7 @@ const { data: events } = await useAsyncData(
           Upcoming events
           <Icon name="ri:arrow-right-up-line" />
         </h2>
-      <div class="flex flex-col gap-site md:gap-18">
+      <div class="flex flex-col gap-site md:gap-8">
         <EventsEvent
           v-for="event in events.upcoming"
           :key="event.id"

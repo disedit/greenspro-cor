@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <div>
-    <div class="flex flex-col gap-site md:gap-20">
+    <div class="flex flex-col gap-site md:gap-8">
       <EventsEvent
         v-for="event in events"
         :key="event.id"
