@@ -3,6 +3,7 @@ import countryLabels from "@/data/countries.js";
 const memberTypeLabels = {
   full_member: "Member",
   alternate_member: "Alternate",
+  x_copresident: "Co-President",
 };
 
 const normalizeText = (value) => {

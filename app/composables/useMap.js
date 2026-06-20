@@ -35,7 +35,9 @@ export const useMap = (profiles) => {
 
   const hoveredCountryMembers = computed(() => {
     const filteredProfiles = profiles.value.filter(
-      (p) => p.country === hoveredCountry.value && p.type === "full_member",
+      (p) =>
+        p.country === hoveredCountry.value &&
+        (p.type === "full_member" || p.type === "x_copresident"),
     );
     return filteredProfiles.length;
   });
