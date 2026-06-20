@@ -46,6 +46,16 @@ const showMore = ref(false)
             <span>{{ profile.phone }}</span>
           </a>
         </div>
+        <div v-if="profile.languages" class="text-xs">
+          <span class="flex items-center gap-1 text-primary leading-tight">
+            <Icon name="ri:speak-line" class="shrink-0" />
+            <span class="flex flex-wrap gap-2 items-center">
+              <abbr v-for="lang in profile.languages" :key="lang.language_code" class="bg-primary/25 font-bold rounded px-1 text-center shrink-0 cursor-default" :title="lang.language_name">
+                <span class="adjust">{{ lang.language_code }}</span>
+              </abbr>
+            </span>
+          </span>
+        </div>
         <ProfilesSocials :socials="profile.socials" :email="profile.email" v-if="profile.socials && profile.socials.length" />
       </div>
       <div class="profile-details text-primary flex flex-col gap-4 flex-1">

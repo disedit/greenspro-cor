@@ -8,7 +8,8 @@ const props = defineProps({
 
 const memberTypes = {
   full_member: 'Member',
-  alternate_member: 'Alternate'
+  alternate_member: 'Alternate',
+  x_copresident: 'Co-President'
 }
 
 const memberType = computed(() => {
