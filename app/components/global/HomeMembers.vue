@@ -59,8 +59,8 @@ const {
               <ProfilesCountry :country="hoveredCountry" class="text-base py-1 px-2" />
               {{ hoveredCountryName }}
             </h2>
-            <p v-if="hoveredCountryMembers">{{ hoveredCountryMembers }} members</p>
-            <p v-if="hoveredCountryAlternates">{{ hoveredCountryAlternates }} alternates</p>
+            <p v-if="hoveredCountryMembers">{{ hoveredCountryMembers }} {{ hoveredCountryMembers === 1 ? 'member' : 'members' }}</p>
+            <p v-if="hoveredCountryAlternates">{{ hoveredCountryAlternates }} {{ hoveredCountryAlternates === 1 ? 'alternate' : 'alternates' }}</p>
           </div>
         </Transition>
         <UtilsMap
