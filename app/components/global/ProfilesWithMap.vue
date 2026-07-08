@@ -12,7 +12,7 @@ const props = defineProps({
 
 const { $wp } = useNuxtApp()
 const route = useRoute()
-const { data: profiles } = await useAsyncData(`profiles-${route.path}`, () =>
+const { data: profiles } = await useAsyncData(`profiles-map-${route.path}`, () =>
   $wp.profiles()
     .param('populate', props.block.profiles.join(','))
     .param('order_by', props.block.order_by || 'menu_order')

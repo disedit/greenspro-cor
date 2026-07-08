@@ -36,10 +36,11 @@ const {
 <template>
   <section class="px-base">
     <div id="profiles" class="2xl:container mx-auto">
-      <h3 v-if="block.heading" class="text-primary text-xl font-bold">
+      <h3 v-if="block.heading" class="text-primary text-xl font-bold my-2 mb-4">
         {{ block.heading }}
       </h3>
       <ProfilesFilter
+        v-if="block.filters && block.filters.length > 0"
         v-model:country="country"
         v-model:commission="commission"
         v-model:member-type="memberType"
@@ -48,6 +49,7 @@ const {
         :commission-options="commissionOptions"
         :member-type-options="memberTypeOptions"
         :show="block.filters"
+        class="-mt-4"
       />
       <ProfilesGrid :profiles="filteredProfiles" />
     </div>
