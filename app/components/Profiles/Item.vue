@@ -9,6 +9,56 @@ const props = defineProps({
 const { commissions } = useCommissions(props.profile.commissions)
 
 const showMore = ref(false)
+const summaryRef = ref(null)
+const showSummaryToggle = ref(false)
+
+let summaryResizeObserver
+
+const updateSummaryToggle = async () => {
+  await nextTick()
+
+  const summaryElement = summaryRef.value
+
+  if (!summaryElement) {
+    showSummaryToggle.value = false
+    return
+  }
+
+  const wasExpanded = showMore.value
+
+  if (wasExpanded) {
+    summaryElement.classList.add('line-clamp-2')
+  }
+
+  showSummaryToggle.value = summaryElement.scrollHeight > summaryElement.clientHeight + 1
+
+  if (wasExpanded) {
+    summaryElement.classList.remove('line-clamp-2')
+  }
+}
+
+onMounted(async () => {
+  await updateSummaryToggle()
+
+  if (!summaryRef.value || typeof ResizeObserver === 'undefined') {
+    return
+  }
+
+  summaryResizeObserver = new ResizeObserver(() => {
+    updateSummaryToggle()
+  })
+
+  summaryResizeObserver.observe(summaryRef.value)
+})
+
+onBeforeUnmount(() => {
+  summaryResizeObserver?.disconnect()
+})
+
+watch(() => props.profile.summary, () => {
+  showMore.value = false
+  updateSummaryToggle()
+})
 </script>
 
 <template>
@@ -69,18 +119,22 @@ const showMore = ref(false)
             </li>
           </ul>
         </div>
-        <div v-if="profile.summary" class="relative cursor-pointer group" @click="showMore = !showMore">
+        <div v-if="profile.summary" class="relative group" :class="{ 'cursor-pointer': showSummaryToggle }" @click="showSummaryToggle ? showMore = !showMore : null">
           <div
+            ref="summaryRef"
             v-html="profile.summary"
             class="text-black text-xs leading-normal [&>p]:mb-2 [&>p]:last:mb-0"
             :class="{ 'line-clamp-2': !showMore }"
           />
           <button
+            v-if="showSummaryToggle"
+            type="button"
             class="underlined cursor-pointer group-hover:font-bold transition bg-white"
             :class="{ 'absolute right-0 bottom-0': !showMore }"
+            @click="showMore = !showMore"
           >
             {{ showMore ? 'Show less' : 'Read more' }}
-            <div class="absolute left-0 inset-y-0 w-15 bg-linear-to-r from-white/0 via-white/75 to-white -translate-x-full"></div>
+            <div v-if="!showMore" class="absolute left-0 inset-y-0 w-15 bg-linear-to-r from-white/0 via-white/75 to-white -translate-x-full"></div>
           </button>
         </div>
       </div>
