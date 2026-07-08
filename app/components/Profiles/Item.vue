@@ -10,6 +10,7 @@ const { commissions } = useCommissions(props.profile.commissions)
 
 const showMore = ref(false)
 const summaryRef = ref(null)
+const toggleRef = ref(null)
 const showSummaryToggle = ref(false)
 
 let summaryResizeObserver
@@ -119,7 +120,7 @@ watch(() => props.profile.summary, () => {
             </li>
           </ul>
         </div>
-        <div v-if="profile.summary" class="relative group" :class="{ 'cursor-pointer': showSummaryToggle }" @click="showSummaryToggle ? showMore = !showMore : null">
+        <div v-if="profile.summary" class="relative group" :class="{ 'cursor-pointer': showSummaryToggle }" @click="toggleRef?.click()">
           <div
             ref="summaryRef"
             v-html="profile.summary"
@@ -127,11 +128,12 @@ watch(() => props.profile.summary, () => {
             :class="{ 'line-clamp-2': !showMore }"
           />
           <button
+            ref="toggleRef"
             v-if="showSummaryToggle"
             type="button"
             class="underlined cursor-pointer group-hover:font-bold transition bg-white"
             :class="{ 'absolute right-0 bottom-0': !showMore }"
-            @click="showMore = !showMore"
+            @click.stop="showMore = !showMore"
           >
             {{ showMore ? 'Show less' : 'Read more' }}
             <div v-if="!showMore" class="absolute left-0 inset-y-0 w-15 bg-linear-to-r from-white/0 via-white/75 to-white -translate-x-full"></div>
