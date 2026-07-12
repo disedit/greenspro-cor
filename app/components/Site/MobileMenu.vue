@@ -87,11 +87,11 @@ function onLeaveCancelled() {
       <div class="flex flex-col container mx-auto h-full p-8">
         <NuxtLink
           v-for="(item, i) in menu"
-          :key="item.top_level_link?.to"
-          :to="link(item.top_level_link)"
-          :data-hover="item.top_level_link?.title"
-          @click="emit('hide', i)">
-          <div class="animate">{{ item.top_level_link?.title }}</div>
+          :key="item.top_level_link?.to || item.link?.to || i"
+          :to="link(item.top_level_link || item.link)"
+          @click="emit('hide', i)"
+        >
+          <div class="animate">{{ item.top_level_link?.title || item.link?.title }}</div>
         </NuxtLink>
         <div class="menu-socials pt-10 mt-auto overflow-hidden">
           <div class="animate">

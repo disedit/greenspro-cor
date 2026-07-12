@@ -77,7 +77,7 @@ const commissionIds = computed(() => data.value?.commissions?.map(commission => 
             tags: data.tags,
             commissions: data.commissions
           }"
-          class="md:col-span-3"
+          class="md:col-span-3 md:row-auto row-start-1"
         />
       </section>
     </div>

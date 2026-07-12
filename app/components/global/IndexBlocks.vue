@@ -14,7 +14,7 @@ const { link } = useUtils()
 </script>
 
 <template>
-  <section class="px-base">
+  <section class="px-base" :class="{ 'md:hidden': block.mobile_only }">
     <div class="2xl:container mx-auto grid md:grid-cols-2 xl:grid-cols-3 gap-8">
       <NuxtLink
         v-for="item in context.menu"
