@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <header class="px-base">
+  <header class="px-base" :class="{ 'md:hidden': block.mobile_only }">
     <div class="mx-auto" :class="{ 'max-w-300': block.narrow, '2xl:container': !block.narrow }">
       <UtilsPageHeader
         :title="block.title || context.title"
