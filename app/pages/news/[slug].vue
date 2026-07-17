@@ -46,9 +46,12 @@ useHead({ title })
                 {{ post.title }}
               </h1>
               <div class="xl:hidden primary-purple border-t border-primary">
-                <NewsFacts :post="post" />
+                <NewsFacts :post="post" basic-only />
               </div>
               <div v-html="post.content" class="text-base gutenberg prose" />
+              <div class="xl:hidden primary-purple border-t border-primary">
+                <NewsFacts :post="post" not-basic />
+              </div>
               <NewsFact v-if="post.thumbnail.caption" icon="ri:information-line" label="Photo credit" class="text-secondary xl:border-b-0 border-t text-xs">
                 {{ post.thumbnail.caption }}
               </NewsFact>

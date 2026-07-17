@@ -3,6 +3,14 @@ const props = defineProps({
   post: {
     type: Object,
     required: true
+  },
+  basicOnly: {
+    type: Boolean,
+    default: false
+  },
+  notBasic: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -12,10 +20,10 @@ const { commissions } = useCommissions(props.post.commissions)
 </script>
 
 <template>
-  <NewsFact icon="ri:calendar-line" label="Posted on">
+  <NewsFact icon="ri:calendar-line" label="Posted on" v-if="!notBasic">
     {{ formatDate(post.date) }}
   </NewsFact>
-  <NewsFact icon="ri:archive-line" label="Type">
+  <NewsFact v-if="!basicOnly" icon="ri:archive-line" label="Type">
     <div class="flex flex-wrap gap-2">
       <NuxtLink
         :to="`/news/page/1/?categories=${category.id}`"
@@ -28,14 +36,14 @@ const { commissions } = useCommissions(props.post.commissions)
       </NuxtLink>
     </div>
   </NewsFact>
-  <NewsFact v-if="post.profiles.length > 0" icon="ri:user-3-line" label="Related Members" layout="column">
+  <NewsFact v-if="post.profiles.length > 0 && !basicOnly" icon="ri:user-3-line" label="Related Members" layout="column">
     <ul class="flex flex-col gap-2">
       <li v-for="profile in post.profiles" :key="profile.id">
         <ProfilesNewsCard :profile="profile" />
       </li>
     </ul>
   </NewsFact>
-  <NewsFact v-if="post.tags?.length" icon="ri:price-tag-3-line" label="Topics">
+  <NewsFact v-if="post.tags?.length && !basicOnly" icon="ri:price-tag-3-line" label="Topics">
     <div class="flex flex-wrap gap-2">
     <NuxtLink
       :to="`/news/page/1/?tags=${tag.id}`"
@@ -47,7 +55,7 @@ const { commissions } = useCommissions(props.post.commissions)
     </NuxtLink>
     </div>
   </NewsFact>
-  <NewsFact v-if="post.commissions?.length" icon="ri:price-tag-3-line" label="Commissions">
+  <NewsFact v-if="post.commissions?.length && !basicOnly" icon="ri:price-tag-3-line" label="Commissions">
     <div class="flex flex-wrap gap-2">
     <NuxtLink
       :to="`/news/page/1/?commissions=${commission.id}`"
